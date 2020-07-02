@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Prefeitura.Negocio.Dominio.Blog
+namespace Prefeitura.Negocio.Dominio.Enums
 {
     public enum NoticiaSituacaoTipo : byte
     {
