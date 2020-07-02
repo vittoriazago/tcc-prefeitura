@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Prefeitura.Negocio.Dominio
 {
-    class Prefeitura
+    public class Prefeitura : Entidade
     {
+        public Guid IdCidade { get; set; }
+
+        public Cidade Cidade { get; set; }
+
     }
 }

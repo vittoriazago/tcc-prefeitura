@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Prefeitura.Negocio.Dominio.Agendamentos
 {
-    class AgendamentoSolicitacao
+    public class AgendamentoSolicitacao : Entidade
     {
     }
 }

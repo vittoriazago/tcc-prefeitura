@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Prefeitura.Negocio.Dominio
 {
-    class Pessoa
+    public class Pessoa : Entidade
     {
     }
 }

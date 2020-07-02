@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Prefeitura.Negocio.Dominio
 {
-    class UnidadeFederativa
+    public class UnidadeFederativa : Entidade
     {
+        public string Sigla { get; set; }
+
+        public ICollection<Cidade> ListaCidade { get; set; }
+
     }
 }

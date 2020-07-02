@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Prefeitura.Negocio.Dominio.Blog
 {
-    class Tag
+    public class Tag : Entidade
     {
+        public string NomeTag { get; set; }
+
+
+        public ICollection<Noticia> ListaNoticia { get; set; }
     }
 }

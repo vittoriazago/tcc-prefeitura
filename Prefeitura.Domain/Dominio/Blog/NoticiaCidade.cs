@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Prefeitura.Negocio.Dominio.Blog
 {
-    public class Visualizacao : Entidade
+    public class NoticiaCidade : Entidade
     {
         public Guid IdNoticia { get; set; }
-        public DateTime DataHora { get; set; }
+        public Guid IdCidade { get; set; }
 
-
+        public Cidade Cidade { get; set; }
         public Noticia Noticia { get; set; }
     }
 }

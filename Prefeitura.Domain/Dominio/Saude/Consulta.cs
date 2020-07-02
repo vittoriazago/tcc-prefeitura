@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Prefeitura.Negocio.Dominio.Saude
 {
-    class Consulta
+    public class Consulta : Entidade
     {
     }
 }

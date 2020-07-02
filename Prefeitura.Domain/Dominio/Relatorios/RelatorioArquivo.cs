@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Prefeitura.Negocio.Dominio.Relatorios
 {
-    class RelatorioArquivo
+    public class RelatorioArquivo : Entidade
     {
     }
 }

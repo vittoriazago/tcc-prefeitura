@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Prefeitura.Negocio
+namespace Prefeitura.Negocio.Dominio.Relatorios
 {
-    class RelatorioSolicitacao
+    public class RelatorioSolicitacao : Entidade
     {
     }
 }

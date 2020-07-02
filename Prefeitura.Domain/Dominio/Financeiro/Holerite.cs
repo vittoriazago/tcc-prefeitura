@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Prefeitura.Negocio.Dominio.Financeiro
 {
-    class Holerite
+    public class Holerite : Entidade
     {
     }
 }

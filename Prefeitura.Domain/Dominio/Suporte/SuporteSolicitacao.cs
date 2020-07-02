@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Prefeitura.Negocio.Dominio.Suporte
 {
-    class SuporteSolicitacao
+    public class SuporteSolicitacao : Entidade
     {
     }
 }
