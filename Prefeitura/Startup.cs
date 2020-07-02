@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.PlatformAbstractions;
+using Swashbuckle.AspNetCore.Swagger;
+using System.IO;
 
 namespace Prefeitura
 {
@@ -26,6 +29,34 @@ namespace Prefeitura
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+
+            services.AddSwaggerGen(c =>
+            {
+                // Configura a documentação do swagger
+                c.SwaggerDoc("v1",
+                    new Microsoft.OpenApi.Models.OpenApiInfo
+                    {
+                        Title = "Prefeitura API",
+                        Version = "v1",
+                        Description = "Service representing ASPNET CORE",
+                        Contact = new Microsoft.OpenApi.Models.OpenApiContact
+                        {
+                            Name = "Vittoria Zago",
+                        }
+                    });
+
+                // configura o xml
+                var caminhoAplicacao =
+                    PlatformServices.Default.Application.ApplicationBasePath;
+                var nomeAplicacao =
+                    PlatformServices.Default.Application.ApplicationName;
+                var caminhoXmlDoc =
+                    Path.Combine(caminhoAplicacao, $"{nomeAplicacao}.xml");
+
+                // adiciona a autorização e os comentários pelo xml
+                c.IncludeXmlComments(caminhoXmlDoc);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +72,13 @@ namespace Prefeitura
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // Ativando middlewares para uso do Swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Prefeitura V1");
+            });
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
