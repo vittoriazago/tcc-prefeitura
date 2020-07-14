@@ -13,7 +13,6 @@ namespace Prefeitura.Negocio.Dominio.Agendamentos
         public DateTime DataHoraDisponivelFinal { get; set; }
         public AgendamentoSituacaoTipo Situacao { get { return ListaHistorico.Single(h => h.Ativo).Situacao; } }
 
-
         public ICollection<AgendamentoHistorico> ListaHistorico { get; set; }
     }
 }
