@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prefeitura", "Prefeitura.csproj", "{ECD868EA-749B-4140-9CB8-746098EBB8B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prefeitura", "Prefeitura.csproj", "{ECD868EA-749B-4140-9CB8-746098EBB8B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prefeitura.Negocio", "..\Prefeitura.Domain\Prefeitura.Negocio.csproj", "{AAAA2136-BA70-43BD-B096-36BE0F1C5B77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prefeitura.Negocio", "..\Prefeitura.Domain\Prefeitura.Negocio.csproj", "{AAAA2136-BA70-43BD-B096-36BE0F1C5B77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{EB19E676-DDB8-4171-8738-8E86B8EADD34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prefeitura.Persistencia", "..\Prefeitura.Persistencia\Prefeitura.Persistencia.csproj", "{590A6DD5-9283-4BCF-8D42-64723DC63179}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,10 @@ Global
 		{AAAA2136-BA70-43BD-B096-36BE0F1C5B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAAA2136-BA70-43BD-B096-36BE0F1C5B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAAA2136-BA70-43BD-B096-36BE0F1C5B77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{590A6DD5-9283-4BCF-8D42-64723DC63179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{590A6DD5-9283-4BCF-8D42-64723DC63179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{590A6DD5-9283-4BCF-8D42-64723DC63179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{590A6DD5-9283-4BCF-8D42-64723DC63179}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
