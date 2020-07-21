@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Prefeitura.Negocio.Dominio.Suporte
@@ -14,7 +15,10 @@ namespace Prefeitura.Negocio.Dominio.Suporte
         public string Solicitacao { get; set; }
 
 
+        [ForeignKey("IdPessoa")]
         public Pessoa Pessoa { get; set; }
+
+        [ForeignKey("IdCidade")]
         public Cidade Cidade { get; set; }
     }
 }

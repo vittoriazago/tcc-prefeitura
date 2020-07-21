@@ -1,6 +1,7 @@
 ﻿using Prefeitura.Negocio.Dominio.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Prefeitura.Negocio.Dominio.Agendamentos
@@ -14,7 +15,10 @@ namespace Prefeitura.Negocio.Dominio.Agendamentos
         public bool Ativo { get; set; }
 
 
+        [ForeignKey("IdAgendamento")]
         public Agendamento Agendamento { get; set; }
+
+        [ForeignKey("IdUsuario")]
         public Usuario Usuario { get; set; }
     }
 }

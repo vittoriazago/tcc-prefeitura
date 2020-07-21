@@ -1,6 +1,7 @@
 ﻿using Prefeitura.Negocio.Dominio.Financeiro;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Prefeitura.Negocio.Dominio.Saude
@@ -10,6 +11,7 @@ namespace Prefeitura.Negocio.Dominio.Saude
         public Guid IdFuncionario { get; set; }
         public string Crm { get; set; }
 
+        [ForeignKey("IdFuncionario")]
         public Funcionario Funcionario { get; set; }
     }
 }

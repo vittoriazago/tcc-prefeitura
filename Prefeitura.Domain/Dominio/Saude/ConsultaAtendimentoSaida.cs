@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Prefeitura.Negocio.Dominio.Saude
@@ -10,6 +11,7 @@ namespace Prefeitura.Negocio.Dominio.Saude
         public string Observacao { get; set; }
 
 
+        [ForeignKey("IdConsultaAtendimento")]
         public ConsultaAtendimento ConsultaAtendimento { get; set; }
     }
 }

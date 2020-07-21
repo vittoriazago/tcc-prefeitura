@@ -1,6 +1,7 @@
 ﻿using Prefeitura.Negocio.Dominio.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
@@ -18,7 +19,9 @@ namespace Prefeitura.Negocio.Dominio.Financeiro
                 return ListaHistorico.Single(h => h.Ativo).Situacao;
             }
         }
+        [ForeignKey("IdPessoa")]
         public Pessoa Pessoa { get; set; }
+        [ForeignKey("IdPrefeitura")]
         public Prefeitura Prefeitura { get; set; }
 
 
