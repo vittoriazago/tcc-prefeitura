@@ -8,7 +8,7 @@ namespace Prefeitura.Negocio.Dominio.Saude
 {
     public class Medico : Entidade
     {
-        public Guid IdFuncionario { get; set; }
+        public int IdFuncionario { get; set; }
         public string Crm { get; set; }
 
         [ForeignKey("IdFuncionario")]

@@ -8,8 +8,8 @@ namespace Prefeitura.Negocio.Dominio.Agendamentos
 {
     public class AgendamentoHistorico : Entidade
     {
-        public Guid IdAgendamento { get; set; }
-        public Guid IdUsuario { get; set; }
+        public int IdAgendamento { get; set; }
+        public int IdUsuario { get; set; }
         public DateTime DataHora { get; set; }
         public AgendamentoSituacaoTipo Situacao { get; set; }
         public bool Ativo { get; set; }

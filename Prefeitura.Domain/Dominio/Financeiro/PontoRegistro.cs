@@ -7,7 +7,7 @@ namespace Prefeitura.Negocio.Dominio.Financeiro
 {
     public class PontoRegistro : Entidade
     {
-        public Guid IdFuncionario { get; set; }
+        public int IdFuncionario { get; set; }
         public DateTime DataHoraCadastro { get; set; }
 
 

@@ -7,7 +7,7 @@ namespace Prefeitura.Negocio.Dominio.Saude
 {
     public class Hospital : Entidade
     {
-        public Guid IdCidade { get; set; }
+        public int IdCidade { get; set; }
         public string NomeHospital { get; set; }
 
 

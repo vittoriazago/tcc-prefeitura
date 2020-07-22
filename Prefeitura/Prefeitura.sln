@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prefeitura.Negocio", "..\Pr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{EB19E676-DDB8-4171-8738-8E86B8EADD34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prefeitura.Persistencia", "..\Prefeitura.Persistencia\Prefeitura.Persistencia.csproj", "{590A6DD5-9283-4BCF-8D42-64723DC63179}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prefeitura.Persistencia", "..\Prefeitura.Persistencia\Prefeitura.Persistencia.csproj", "{590A6DD5-9283-4BCF-8D42-64723DC63179}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prefeitura.Testes", "..\Prefeitura.Testes\Prefeitura.Testes.csproj", "{E5099B4B-AE58-4E6A-826E-FCDADD96F78F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{590A6DD5-9283-4BCF-8D42-64723DC63179}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{590A6DD5-9283-4BCF-8D42-64723DC63179}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{590A6DD5-9283-4BCF-8D42-64723DC63179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5099B4B-AE58-4E6A-826E-FCDADD96F78F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5099B4B-AE58-4E6A-826E-FCDADD96F78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5099B4B-AE58-4E6A-826E-FCDADD96F78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5099B4B-AE58-4E6A-826E-FCDADD96F78F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

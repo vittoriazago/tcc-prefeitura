@@ -7,7 +7,7 @@ namespace Prefeitura.Negocio.Dominio.Blog
 {
     public class Visualizacao : Entidade
     {
-        public Guid IdNoticia { get; set; }
+        public int IdNoticia { get; set; }
         public DateTime DataHora { get; set; }
 
 

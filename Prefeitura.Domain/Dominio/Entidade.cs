@@ -9,11 +9,11 @@ namespace Prefeitura.Negocio.Dominio
     {
         protected Entidade()
         {
-            Id = Guid.NewGuid();
+            Id = int.Newint();
         }
 
 
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

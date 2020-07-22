@@ -9,7 +9,7 @@ namespace Prefeitura.Negocio.Dominio.Blog
     {
         public string Nome { get; set; }
         public string Conteudo { get; set; }
-        public Guid IdNoticia { get; set; }
+        public int IdNoticia { get; set; }
         public DateTime DataHora { get; set; }
 
 

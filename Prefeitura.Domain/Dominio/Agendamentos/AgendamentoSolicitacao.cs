@@ -13,20 +13,20 @@ namespace Prefeitura.Negocio.Dominio.Agendamentos
         public bool Preferencial { get; set; }
         public int Senha { get; set; }
 
-        public Guid IdAgendamento { get; set; }
-        public Guid IdPrefeitura { get; set; }
-        public Guid IdPessoa { get; set; }
+        public int IdAgendamento { get; set; }
+        public int IdCidade { get; set; }
+        public int IdPessoa { get; set; }
         public DateTime DataHoraAgendamento { get; set; }
         public AgendamentoSolicitacaoSituacaoTipo Situacao { get { return ListaHistorico.Single(h => h.Ativo).Situacao; } }
 
         [ForeignKey("IdAgendamento")]
         public Agendamento Agendamento { get; set; }
 
-        [ForeignKey("IdPrefeitura")]
-        public Prefeitura Prefeitura { get; set; }
+        [ForeignKey("IdCidade")]
+        public Cidade Cidade  { get; set; }
 
         [ForeignKey("IdPessoa")]
-        public Prefeitura Pessoa { get; set; }
+        public Pessoa Pessoa { get; set; }
         public ICollection<AgendamentoSolicitacaoHistorico> ListaHistorico { get; set; }
     }
 }

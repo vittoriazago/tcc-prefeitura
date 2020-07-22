@@ -7,8 +7,8 @@ namespace Prefeitura.Negocio.Dominio.Suporte
 {
     public class SuporteSolicitacao : Entidade
     {
-        public Guid IdCidade { get; set; }
-        public Guid IdPessoa { get; set; }
+        public int IdCidade { get; set; }
+        public int IdPessoa { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
         public string Nome { get; set; }

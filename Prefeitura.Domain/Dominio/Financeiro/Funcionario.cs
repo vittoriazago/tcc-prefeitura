@@ -9,8 +9,8 @@ namespace Prefeitura.Negocio.Dominio.Financeiro
 {
     public class Funcionario : Entidade
     {
-        public Guid IdPessoa { get; set; }
-        public Guid IdPrefeitura { get; set; }
+        public int IdPessoa { get; set; }
+        public int IdCidade { get; set; }
         public FuncionarioContratacaoTipo Contratacao { get; set; }
         public FuncionarioSituacaoTipo Situacao
         {
@@ -21,8 +21,8 @@ namespace Prefeitura.Negocio.Dominio.Financeiro
         }
         [ForeignKey("IdPessoa")]
         public Pessoa Pessoa { get; set; }
-        [ForeignKey("IdPrefeitura")]
-        public Prefeitura Prefeitura { get; set; }
+        [ForeignKey("IdCidade")]
+        public Cidade Cidade  { get; set; }
 
 
         public ICollection<FuncionarioHistorico> ListaHistorico { get; set; }

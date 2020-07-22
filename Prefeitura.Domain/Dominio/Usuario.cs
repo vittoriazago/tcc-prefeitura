@@ -6,7 +6,7 @@ namespace Prefeitura.Negocio.Dominio
 {
     public class Usuario : IdentityUser
     {
-        public Guid IdPessoa { get; set; }
+        public int IdPessoa { get; set; }
 
 
         [ForeignKey("IdPessoa")]

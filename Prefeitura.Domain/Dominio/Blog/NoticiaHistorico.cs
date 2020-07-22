@@ -8,8 +8,8 @@ namespace Prefeitura.Negocio.Dominio.Blog
 {
     public class NoticiaHistorico : Entidade
     {
-        public Guid IdNoticia { get; set; }
-        public Guid IdUsuario { get; set; }
+        public int IdNoticia { get; set; }
+        public int IdUsuario { get; set; }
         public DateTime DataHora { get; set; }
         public NoticiaSituacaoTipo Situacao { get; set; }
         public bool Ativo { get; set; }

@@ -6,11 +6,11 @@ using Prefeitura.Negocio.Dominio.Financeiro;
 using Prefeitura.Negocio.Dominio.Saude;
 using Prefeitura.Negocio.Dominio.Suporte;
 
-namespace Prefeitura.Persistencia
+namespace Prefeitura.Negocio
 {
-    public class Contexto : DbContext
+    public class ContextoPrefeitura : DbContext
     {
-        public Contexto(DbContextOptions<Contexto> options) : base(options) { }
+        public ContextoPrefeitura(DbContextOptions<ContextoPrefeitura> options) : base(options) { }
 
         public DbSet<Agendamento> Agendamentos { get; set; }
         public DbSet<AgendamentoHistorico> AgendamentoHistoricos { get; set; }
@@ -41,6 +41,22 @@ namespace Prefeitura.Persistencia
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+
+            foreach (var entity in modelBuilder.Model.GetEntityTypes())
+            {
+                // Replace table names
+                entity.SetTableName(entity.GetTableName().ToUpper());
+
+                // Replace column names            
+                foreach (var property in entity.GetProperties())
+                    property.SetColumnName(property.GetColumnName().ToUpper());
+
+                foreach (var key in entity.GetKeys()) key.SetName(key.GetName().ToUpper());
+
+                foreach (var key in entity.GetForeignKeys()) key.SetConstraintName(key.GetConstraintName().ToUpper());
+            }
+
         }
 
     }

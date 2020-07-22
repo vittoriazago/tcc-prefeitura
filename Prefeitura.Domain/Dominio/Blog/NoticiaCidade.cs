@@ -7,8 +7,8 @@ namespace Prefeitura.Negocio.Dominio.Blog
 {
     public class NoticiaCidade : Entidade
     {
-        public Guid IdNoticia { get; set; }
-        public Guid IdCidade { get; set; }
+        public int IdNoticia { get; set; }
+        public int IdCidade { get; set; }
 
         [ForeignKey("IdCidade")]
         public Cidade Cidade { get; set; }
