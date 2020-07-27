@@ -9,6 +9,6 @@ namespace Prefeitura.Negocio.Dominio.Blog
         public string NomeTag { get; set; }
 
 
-        public ICollection<Noticia> ListaNoticia { get; set; }
+        public ICollection<NoticiaTag> ListaNoticiaTag { get; set; }
     }
 }

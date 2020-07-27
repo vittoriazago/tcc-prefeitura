@@ -12,7 +12,7 @@ namespace Prefeitura.Negocio.Dominio.Blog
         public string ConteudoHtml { get; set; }
         public NoticiaSituacaoTipo Situacao { get { return ListaHistorico.Single(h => h.Ativo).Situacao; } }
 
-        public ICollection<Tag> ListaTag { get; set; }
+        public ICollection<NoticiaTag> ListaNoticiaTag { get; set; }
         public ICollection<NoticiaAutor> ListaAutor { get; set; }
         public ICollection<NoticiaHistorico> ListaHistorico { get; set; }
         public ICollection<Visualizacao> ListaVisualizacao { get; set; }

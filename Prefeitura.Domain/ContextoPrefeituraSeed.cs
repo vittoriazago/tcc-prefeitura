@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Prefeitura.Negocio.Dominio;
 using System;
@@ -14,13 +15,39 @@ namespace Prefeitura.Negocio
         {
             modelBuilder.SeedUFs();
             modelBuilder.SeedCidades(2);
+
+            const int ADMIN_ID = 1;
+            const int ROLE_ID = ADMIN_ID;
+            modelBuilder.Entity<Role>().HasData(new Role
+            {
+                Id = ROLE_ID,
+                Name = "admin",
+                NormalizedName = "ADMIN"
+            });
+            modelBuilder.Entity<Usuario>().HasData(new Usuario
+            {
+                Id = ADMIN_ID,
+                UserName = "myemail@myemail.com",
+                NormalizedUserName = "MYEMAIL@MYEMAIL.COM",
+                Email = "myemail@myemail.com",
+                NormalizedEmail = "MYEMAIL@MYEMAIL.COM",
+                EmailConfirmed = true,
+                PasswordHash = "AQABBAEABCcQAABAEBhd37krE/TyMklt3SIf2Q3ITj/dunHYr7O5Z9UB0R1+dpDbcrHWuTBr8Uh5WR+JrQ==",
+                SecurityStamp = "VVPCRDAS3MJWQD5CSW2GWPRADBXEZINA",
+                ConcurrencyStamp = "c8554266-b401-4519-9aeb-a9283053fc58"
+            });
+            modelBuilder.Entity<UsuarioRole>().HasData(new UsuarioRole
+            { 
+                RoleId = ROLE_ID,
+                UserId = ADMIN_ID
+            });
         }
 
         public static List<UnidadeFederativa> SeedUFs(this ModelBuilder modelBuilder)
         {
             var ufs = new List<UnidadeFederativa>()
             {
-                new UnidadeFederativa(1, "MG" ),
+                new UnidadeFederativa(1, "MG"),
                 new UnidadeFederativa(2, "SP")
             };
 

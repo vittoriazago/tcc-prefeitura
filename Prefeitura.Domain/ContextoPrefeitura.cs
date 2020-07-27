@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
+using Prefeitura.Negocio.Dominio;
 using Prefeitura.Negocio.Dominio.Agendamentos;
 using Prefeitura.Negocio.Dominio.Blog;
 using Prefeitura.Negocio.Dominio.Financeiro;
@@ -42,6 +43,18 @@ namespace Prefeitura.Negocio
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<UsuarioRole>(userRole =>
+            {
+                userRole.HasKey(ur => new { ur.UserId, ur.RoleId });
+                userRole.HasOne(ur => ur.Role)
+                        .WithMany(r => r.UsuarioRoles)
+                        .HasForeignKey(ur => ur.RoleId)
+                        .IsRequired();
+                userRole.HasOne(ur => ur.Usuario)
+                        .WithMany(r => r.UsuarioRoles)
+                        .HasForeignKey(ur => ur.UserId)
+                        .IsRequired();
+            });
 
             foreach (var entity in modelBuilder.Model.GetEntityTypes())
             {
