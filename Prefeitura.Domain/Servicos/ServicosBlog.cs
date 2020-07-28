@@ -23,21 +23,13 @@ namespace Prefeitura.Negocio.Servicos
         /// <param name="numeroPagina">Número da página</param>
         /// <param name="tamanhoPagina">Tamanho da página</param>
         /// <returns></returns>
-        public async Task<(int quantidadeTotal, IEnumerable<Noticia> noticias)> Buscar(
+        public async Task<(int quantidadeTotal, IQueryable<Noticia> noticias)> Buscar(
             int numeroPagina = 1,
             int? tamanhoPagina = null)
         {
             var noticias = _contexto.Noticias.AsQueryable();
 
-            var quantidadeTotal = await noticias.CountAsync();
-            if (tamanhoPagina.HasValue)
-            {
-                if (numeroPagina > 1)
-                    noticias = noticias.Skip((numeroPagina - 1) * tamanhoPagina.Value);
-
-                noticias = noticias.Take(tamanhoPagina.Value);
-            }
-            return (quantidadeTotal, noticias);
+            return await noticias.Paginacao(numeroPagina, tamanhoPagina);
         }
 
     }

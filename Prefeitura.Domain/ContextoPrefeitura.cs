@@ -67,9 +67,12 @@ namespace Prefeitura.Negocio
 
                 foreach (var key in entity.GetKeys()) key.SetName(key.GetName().ToUpper());
 
-                foreach (var key in entity.GetForeignKeys()) key.SetConstraintName(key.GetConstraintName().ToUpper());
+                foreach (var key in entity.GetForeignKeys())
+                {
+                    key.SetConstraintName(key.GetConstraintName().ToUpper());
+                    key.DeleteBehavior = DeleteBehavior.Cascade;
+                }
             }
-
         }
 
     }

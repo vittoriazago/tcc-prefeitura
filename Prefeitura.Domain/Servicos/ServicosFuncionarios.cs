@@ -30,15 +30,7 @@ namespace Prefeitura.Negocio.Servicos
         {
             var funcionarios = _contexto.Funcionarios.AsQueryable();
 
-            var quantidadeTotal = await funcionarios.CountAsync();
-            if (tamanhoPagina.HasValue)
-            {
-                if (numeroPagina > 1)
-                    funcionarios = funcionarios.Skip((numeroPagina - 1) * tamanhoPagina.Value);
-
-                funcionarios = funcionarios.Take(tamanhoPagina.Value);
-            }
-            return (quantidadeTotal, funcionarios);
+            return await funcionarios.Paginacao(numeroPagina, tamanhoPagina);
         }
 
     }
