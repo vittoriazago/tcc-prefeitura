@@ -1,10 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Prefeitura.Negocio.Dominio.Blog;
-using Prefeitura.Negocio.Dominio.Financeiro;
-using System;
+﻿using Prefeitura.Negocio.Dominio.Financeiro;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Prefeitura.Negocio.Servicos
@@ -19,12 +14,12 @@ namespace Prefeitura.Negocio.Servicos
         }
 
         /// <summary>
-        /// Buscar noticias por paginadas
+        /// Buscar funcionarios com paginacao
         /// </summary>
         /// <param name="numeroPagina">Número da página</param>
         /// <param name="tamanhoPagina">Tamanho da página</param>
         /// <returns></returns>
-        public async Task<(int quantidadeTotal, IEnumerable<Funcionario> noticias)> Buscar(
+        public async Task<(int quantidadeTotal, IEnumerable<Funcionario> funcionarios)> Buscar(
             int numeroPagina = 1,
             int? tamanhoPagina = null)
         {

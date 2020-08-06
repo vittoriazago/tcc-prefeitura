@@ -861,14 +861,14 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany("ListaHistorico")
                         .HasForeignKey("IdAgendamento")
                         .HasConstraintName("FK_AGENDAMENTOHISTORICOS_AGENDAMENTOS_IDAGENDAMENTO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
                         .HasConstraintName("FK_AGENDAMENTOHISTORICOS_USUARIO_IDUSUARIO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -878,21 +878,21 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany()
                         .HasForeignKey("IdAgendamento")
                         .HasConstraintName("FK_AGENDAMENTOSOLICITACAO_AGENDAMENTOS_IDAGENDAMENTO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Cidade", "Cidade")
                         .WithMany()
                         .HasForeignKey("IdCidade")
                         .HasConstraintName("FK_AGENDAMENTOSOLICITACAO_CIDADE_IDCIDADE")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Pessoa", "Pessoa")
                         .WithMany()
                         .HasForeignKey("IdPessoa")
                         .HasConstraintName("FK_AGENDAMENTOSOLICITACAO_PESSOA_IDPESSOA")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -902,14 +902,14 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany("ListaHistorico")
                         .HasForeignKey("IdAgendamentoSolicitacao")
                         .HasConstraintName("FK_AGENDAMENTOSOLICITACAOHISTORICOS_AGENDAMENTOSOLICITACAO_IDAGENDAMENTOSOLICITACAO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
                         .HasConstraintName("FK_AGENDAMENTOSOLICITACAOHISTORICOS_USUARIO_IDUSUARIO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -919,7 +919,7 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany("ListaComentario")
                         .HasForeignKey("IdNoticia")
                         .HasConstraintName("FK_COMENTARIOS_NOTICIAS_IDNOTICIA")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -929,14 +929,14 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany()
                         .HasForeignKey("IdAutor")
                         .HasConstraintName("FK_NOTICIAAUTORES_PESSOA_IDAUTOR")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Blog.Noticia", "Noticia")
                         .WithMany("ListaAutor")
                         .HasForeignKey("IdNoticia")
                         .HasConstraintName("FK_NOTICIAAUTORES_NOTICIAS_IDNOTICIA")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -946,14 +946,14 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany()
                         .HasForeignKey("IdCidade")
                         .HasConstraintName("FK_NOTICIACIDADES_CIDADE_IDCIDADE")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Blog.Noticia", "Noticia")
                         .WithMany("ListaCidade")
                         .HasForeignKey("IdNoticia")
                         .HasConstraintName("FK_NOTICIACIDADES_NOTICIAS_IDNOTICIA")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -963,14 +963,14 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany("ListaHistorico")
                         .HasForeignKey("IdNoticia")
                         .HasConstraintName("FK_NOTICIAHISTORICO_NOTICIAS_IDNOTICIA")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
                         .HasConstraintName("FK_NOTICIAHISTORICO_USUARIO_IDUSUARIO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -980,14 +980,14 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany("ListaNoticiaTag")
                         .HasForeignKey("IdNoticia")
                         .HasConstraintName("FK_NOTICIATAG_NOTICIAS_IDNOTICIA")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Blog.Tag", "Tag")
                         .WithMany("ListaNoticiaTag")
                         .HasForeignKey("IdTag")
                         .HasConstraintName("FK_NOTICIATAG_TAGS_IDTAG")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -997,7 +997,7 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany("ListaVisualizacao")
                         .HasForeignKey("IdNoticia")
                         .HasConstraintName("FK_VISUALIZACAO_NOTICIAS_IDNOTICIA")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -1007,7 +1007,7 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany("ListaCidade")
                         .HasForeignKey("IdUnidadeFederativa")
                         .HasConstraintName("FK_CIDADE_UNIDADEFEDERATIVA_IDUNIDADEFEDERATIVA")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -1017,14 +1017,14 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany()
                         .HasForeignKey("IdCidade")
                         .HasConstraintName("FK_FUNCIONARIOS_CIDADE_IDCIDADE")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Pessoa", "Pessoa")
                         .WithMany()
                         .HasForeignKey("IdPessoa")
                         .HasConstraintName("FK_FUNCIONARIOS_PESSOA_IDPESSOA")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -1034,14 +1034,14 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany("ListaHistorico")
                         .HasForeignKey("IdFuncionario")
                         .HasConstraintName("FK_FUNCIONARIOHISTORICOS_FUNCIONARIOS_IDFUNCIONARIO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
                         .HasConstraintName("FK_FUNCIONARIOHISTORICOS_USUARIO_IDUSUARIO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -1051,7 +1051,7 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany("ListaHolerite")
                         .HasForeignKey("IdFuncionario")
                         .HasConstraintName("FK_FUNCIONARIOHOLERITES_FUNCIONARIOS_IDFUNCIONARIO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -1061,7 +1061,7 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany("ListaPontoRegistro")
                         .HasForeignKey("IdFuncionario")
                         .HasConstraintName("FK_FUNCIONARIOPONTOREGISTROS_FUNCIONARIOS_IDFUNCIONARIO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -1071,21 +1071,21 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany()
                         .HasForeignKey("IdHospital")
                         .HasConstraintName("FK_CONSULTAATENDIMENTO_HOSPITAL_IDHOSPITAL")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Saude.Medico", "Medico")
                         .WithMany()
                         .HasForeignKey("IdMedico")
                         .HasConstraintName("FK_CONSULTAATENDIMENTO_MEDICO_IDMEDICO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Pessoa", "Pessoa")
                         .WithMany()
                         .HasForeignKey("IdPessoa")
                         .HasConstraintName("FK_CONSULTAATENDIMENTO_PESSOA_IDPESSOA")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -1095,7 +1095,7 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany("ListaConsultaAtendimentoSaida")
                         .HasForeignKey("IdConsultaAtendimento")
                         .HasConstraintName("FK_CONSULTAATENDIMENTOSAIDA_CONSULTAATENDIMENTO_IDCONSULTAATENDIMENTO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -1105,7 +1105,7 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany()
                         .HasForeignKey("IdCidade")
                         .HasConstraintName("FK_HOSPITAL_CIDADE_IDCIDADE")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -1115,7 +1115,7 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany()
                         .HasForeignKey("IdFuncionario")
                         .HasConstraintName("FK_MEDICO_FUNCIONARIOS_IDFUNCIONARIO")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -1125,14 +1125,14 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany()
                         .HasForeignKey("IdCidade")
                         .HasConstraintName("FK_SUPORTESOLICITACOES_CIDADE_IDCIDADE")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Pessoa", "Pessoa")
                         .WithMany()
                         .HasForeignKey("IdPessoa")
                         .HasConstraintName("FK_SUPORTESOLICITACOES_PESSOA_IDPESSOA")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -1142,7 +1142,7 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany()
                         .HasForeignKey("IdPessoa")
                         .HasConstraintName("FK_USUARIO_PESSOA_IDPESSOA")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -1152,14 +1152,14 @@ namespace Prefeitura.Persistencia.Migrations
                         .WithMany("UsuarioRoles")
                         .HasForeignKey("RoleId")
                         .HasConstraintName("FK_USUARIOROLE_ROLE_ROLEID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Negocio.Dominio.Usuario", "Usuario")
                         .WithMany("UsuarioRoles")
                         .HasForeignKey("UserId")
                         .HasConstraintName("FK_USUARIOROLE_USUARIO_USERID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

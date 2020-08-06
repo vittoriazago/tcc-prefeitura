@@ -70,7 +70,7 @@ namespace Prefeitura.Negocio
                 foreach (var key in entity.GetForeignKeys())
                 {
                     key.SetConstraintName(key.GetConstraintName().ToUpper());
-                    key.DeleteBehavior = DeleteBehavior.Cascade;
+                    key.DeleteBehavior = DeleteBehavior.NoAction;
                 }
             }
         }

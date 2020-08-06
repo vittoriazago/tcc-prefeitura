@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Prefeitura.Negocio.Dominio.Blog;
+using Prefeitura.Negocio.Dominio.Financeiro;
+using Prefeitura.Negocio.Dominio.Saude;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,28 +10,28 @@ using System.Threading.Tasks;
 
 namespace Prefeitura.Negocio.Servicos
 {
-    public class ServicosBlog
+    public class ServicosMedicos
     {
         private readonly ContextoPrefeitura _contexto;
 
-        public ServicosBlog(ContextoPrefeitura contexto)
+        public ServicosMedicos(ContextoPrefeitura contexto)
         {
             _contexto = contexto;
         }
 
         /// <summary>
-        /// Buscar noticias com paginação
+        /// Buscar medicos com paginacao
         /// </summary>
         /// <param name="numeroPagina">Número da página</param>
         /// <param name="tamanhoPagina">Tamanho da página</param>
         /// <returns></returns>
-        public async Task<(int quantidadeTotal, IQueryable<Noticia> noticias)> Buscar(
+        public async Task<(int quantidadeTotal, IEnumerable<Medico> medicos)> Buscar(
             int numeroPagina = 1,
             int? tamanhoPagina = null)
         {
-            var noticias = _contexto.Noticias.AsQueryable();
+            var medicos = _contexto.Medico.AsQueryable();
 
-            return await noticias.Paginacao(numeroPagina, tamanhoPagina);
+            return await medicos.Paginacao(numeroPagina, tamanhoPagina);
         }
 
     }

@@ -8,15 +8,15 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.PlatformAbstractions;
 using Prefeitura.Negocio;
-using Swashbuckle.AspNetCore.Swagger;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using System.IO;
+using Prefeitura.Negocio.Servicos;
+using Microsoft.AspNetCore.Mvc;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace Prefeitura
 {
@@ -38,6 +38,29 @@ namespace Prefeitura
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ContextoPrefeitura>();
+
+
+            services.AddMvc()
+                    .AddNewtonsoftJson(o =>
+                    {
+                        o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                        o.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                    })
+                    .AddJsonOptions(opt =>
+                    {
+                        opt.JsonSerializerOptions.PropertyNamingPolicy = null;
+                        opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                        opt.JsonSerializerOptions.IgnoreNullValues = true;
+                    });
+
+            services.AddScoped<ServicosBlog>();
+            services.AddScoped<ServicosAgendamentos>();
+            services.AddScoped<ServicosAgendamentosSolicitacoes>();
+            services.AddScoped<ServicosConsultasMedicas>();
+            services.AddScoped<ServicosFuncionarios>();
+            services.AddScoped<ServicosMedicos>();
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Prefeitura.Persistencia.Migrations
 {
-    public partial class inicial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -110,8 +110,7 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_COMENTARIOS_NOTICIAS_IDNOTICIA",
                         column: x => x.IDNOTICIA,
                         principalTable: "NOTICIAS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -130,8 +129,7 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_VISUALIZACAO_NOTICIAS_IDNOTICIA",
                         column: x => x.IDNOTICIA,
                         principalTable: "NOTICIAS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -150,14 +148,12 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_NOTICIAAUTORES_PESSOA_IDAUTOR",
                         column: x => x.IDAUTOR,
                         principalTable: "PESSOA",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_NOTICIAAUTORES_NOTICIAS_IDNOTICIA",
                         column: x => x.IDNOTICIA,
                         principalTable: "NOTICIAS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -191,8 +187,7 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_USUARIO_PESSOA_IDPESSOA",
                         column: x => x.IDPESSOA,
                         principalTable: "PESSOA",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -211,14 +206,12 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_NOTICIATAG_NOTICIAS_IDNOTICIA",
                         column: x => x.IDNOTICIA,
                         principalTable: "NOTICIAS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_NOTICIATAG_TAGS_IDTAG",
                         column: x => x.IDTAG,
                         principalTable: "TAGS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -237,8 +230,7 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_CIDADE_UNIDADEFEDERATIVA_IDUNIDADEFEDERATIVA",
                         column: x => x.IDUNIDADEFEDERATIVA,
                         principalTable: "UNIDADEFEDERATIVA",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -260,14 +252,12 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_AGENDAMENTOHISTORICOS_AGENDAMENTOS_IDAGENDAMENTO",
                         column: x => x.IDAGENDAMENTO,
                         principalTable: "AGENDAMENTOS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_AGENDAMENTOHISTORICOS_USUARIO_IDUSUARIO",
                         column: x => x.IDUSUARIO,
                         principalTable: "USUARIO",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -289,14 +279,12 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_NOTICIAHISTORICO_NOTICIAS_IDNOTICIA",
                         column: x => x.IDNOTICIA,
                         principalTable: "NOTICIAS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_NOTICIAHISTORICO_USUARIO_IDUSUARIO",
                         column: x => x.IDUSUARIO,
                         principalTable: "USUARIO",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -314,14 +302,12 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_USUARIOROLE_ROLE_ROLEID",
                         column: x => x.ROLEID,
                         principalTable: "ROLE",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_USUARIOROLE_USUARIO_USERID",
                         column: x => x.USERID,
                         principalTable: "USUARIO",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -345,20 +331,17 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_AGENDAMENTOSOLICITACAO_AGENDAMENTOS_IDAGENDAMENTO",
                         column: x => x.IDAGENDAMENTO,
                         principalTable: "AGENDAMENTOS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_AGENDAMENTOSOLICITACAO_CIDADE_IDCIDADE",
                         column: x => x.IDCIDADE,
                         principalTable: "CIDADE",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_AGENDAMENTOSOLICITACAO_PESSOA_IDPESSOA",
                         column: x => x.IDPESSOA,
                         principalTable: "PESSOA",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -378,14 +361,12 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_FUNCIONARIOS_CIDADE_IDCIDADE",
                         column: x => x.IDCIDADE,
                         principalTable: "CIDADE",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_FUNCIONARIOS_PESSOA_IDPESSOA",
                         column: x => x.IDPESSOA,
                         principalTable: "PESSOA",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -404,8 +385,7 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_HOSPITAL_CIDADE_IDCIDADE",
                         column: x => x.IDCIDADE,
                         principalTable: "CIDADE",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -424,14 +404,12 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_NOTICIACIDADES_CIDADE_IDCIDADE",
                         column: x => x.IDCIDADE,
                         principalTable: "CIDADE",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_NOTICIACIDADES_NOTICIAS_IDNOTICIA",
                         column: x => x.IDNOTICIA,
                         principalTable: "NOTICIAS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -454,14 +432,12 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_SUPORTESOLICITACOES_CIDADE_IDCIDADE",
                         column: x => x.IDCIDADE,
                         principalTable: "CIDADE",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_SUPORTESOLICITACOES_PESSOA_IDPESSOA",
                         column: x => x.IDPESSOA,
                         principalTable: "PESSOA",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -483,14 +459,12 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_AGENDAMENTOSOLICITACAOHISTORICOS_AGENDAMENTOSOLICITACAO_IDAGENDAMENTOSOLICITACAO",
                         column: x => x.IDAGENDAMENTOSOLICITACAO,
                         principalTable: "AGENDAMENTOSOLICITACAO",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_AGENDAMENTOSOLICITACAOHISTORICOS_USUARIO_IDUSUARIO",
                         column: x => x.IDUSUARIO,
                         principalTable: "USUARIO",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -512,14 +486,12 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_FUNCIONARIOHISTORICOS_FUNCIONARIOS_IDFUNCIONARIO",
                         column: x => x.IDFUNCIONARIO,
                         principalTable: "FUNCIONARIOS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_FUNCIONARIOHISTORICOS_USUARIO_IDUSUARIO",
                         column: x => x.IDUSUARIO,
                         principalTable: "USUARIO",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -539,8 +511,7 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_FUNCIONARIOHOLERITES_FUNCIONARIOS_IDFUNCIONARIO",
                         column: x => x.IDFUNCIONARIO,
                         principalTable: "FUNCIONARIOS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -559,8 +530,7 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_FUNCIONARIOPONTOREGISTROS_FUNCIONARIOS_IDFUNCIONARIO",
                         column: x => x.IDFUNCIONARIO,
                         principalTable: "FUNCIONARIOS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -579,8 +549,7 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_MEDICO_FUNCIONARIOS_IDFUNCIONARIO",
                         column: x => x.IDFUNCIONARIO,
                         principalTable: "FUNCIONARIOS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -602,20 +571,17 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_CONSULTAATENDIMENTO_HOSPITAL_IDHOSPITAL",
                         column: x => x.IDHOSPITAL,
                         principalTable: "HOSPITAL",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_CONSULTAATENDIMENTO_MEDICO_IDMEDICO",
                         column: x => x.IDMEDICO,
                         principalTable: "MEDICO",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_CONSULTAATENDIMENTO_PESSOA_IDPESSOA",
                         column: x => x.IDPESSOA,
                         principalTable: "PESSOA",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -634,8 +600,7 @@ namespace Prefeitura.Persistencia.Migrations
                         name: "FK_CONSULTAATENDIMENTOSAIDA_CONSULTAATENDIMENTO_IDCONSULTAATENDIMENTO",
                         column: x => x.IDCONSULTAATENDIMENTO,
                         principalTable: "CONSULTAATENDIMENTO",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateIndex(
