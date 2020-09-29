@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Prefeitura.Persistencia;
 
 namespace Prefeitura.Persistencia.Migrations
 {
     [DbContext(typeof(ContextoPrefeituraMigrations))]
-    partial class ContextoPrefeituraMigrationsModelSnapshot : ModelSnapshot
+    [Migration("20200929012513_data")]
+    partial class data
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -409,12 +411,12 @@ namespace Prefeitura.Persistencia.Migrations
                         {
                             Id = 1,
                             Descricao = "BAURU",
-                            IdUnidadeFederativa = 1
+                            IdUnidadeFederativa = 2
                         },
                         new
                         {
                             Id = 2,
-                            Descricao = "BELO HORIZONTE",
+                            Descricao = "BAURU",
                             IdUnidadeFederativa = 2
                         });
                 });
@@ -603,7 +605,7 @@ namespace Prefeitura.Persistencia.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "d6d83ab4-fa10-4eaf-a422-3076a0c7f5fb",
+                            ConcurrencyStamp = "1e36ac70-e7e2-4b88-aa53-c996c94307d6",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -883,7 +885,7 @@ namespace Prefeitura.Persistencia.Migrations
                             AccessFailedCount = 0,
                             Ativo = true,
                             ConcurrencyStamp = "c8554266-b401-4519-9aeb-a9283053fc58",
-                            DataCadastro = new DateTime(2020, 9, 28, 22, 31, 11, 264, DateTimeKind.Local).AddTicks(4755),
+                            DataCadastro = new DateTime(2020, 9, 28, 22, 25, 11, 909, DateTimeKind.Local).AddTicks(9937),
                             Email = "myemail@myemail.com",
                             EmailConfirmed = true,
                             IdPessoa = 1,

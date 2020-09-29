@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Prefeitura.Persistencia;
 
 namespace Prefeitura.Persistencia.Migrations
 {
     [DbContext(typeof(ContextoPrefeituraMigrations))]
-    partial class ContextoPrefeituraMigrationsModelSnapshot : ModelSnapshot
+    [Migration("20200929013112_dataFixing")]
+    partial class dataFixing
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

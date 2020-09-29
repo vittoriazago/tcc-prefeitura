@@ -60,7 +60,7 @@ namespace Prefeitura.Negocio
             {
                 // Replace table names
                 entity.SetTableName(entity.GetTableName().ToUpper());
-
+                
                 // Replace column names            
                 foreach (var property in entity.GetProperties())
                     property.SetColumnName(property.GetColumnName().ToUpper());
@@ -70,9 +70,11 @@ namespace Prefeitura.Negocio
                 foreach (var key in entity.GetForeignKeys())
                 {
                     key.SetConstraintName(key.GetConstraintName().ToUpper());
-                    key.DeleteBehavior = DeleteBehavior.NoAction;
+                    key.DeleteBehavior = DeleteBehavior.Restrict;
                 }
             }
+            modelBuilder.SeedInicial();
+
         }
 
     }

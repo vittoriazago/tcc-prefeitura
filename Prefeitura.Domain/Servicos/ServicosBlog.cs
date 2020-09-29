@@ -32,5 +32,18 @@ namespace Prefeitura.Negocio.Servicos
             return await noticias.Paginacao(numeroPagina, tamanhoPagina);
         }
 
+        /// <summary>
+        /// Nova noticia
+        /// </summary>
+        /// <param name="noticia"></param>
+        /// <returns></returns>
+        public async Task<Noticia> AdicionarNoticia(Noticia noticia)
+        {
+            await _contexto.AddAsync(noticia).ConfigureAwait(false);
+
+            await _contexto.SaveChangesAsync().ConfigureAwait(false);
+
+            return noticia;
+        }
     }
 }

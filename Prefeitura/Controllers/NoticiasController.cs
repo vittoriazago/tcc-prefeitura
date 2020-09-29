@@ -42,5 +42,14 @@ namespace Prefeitura.Controllers
             var noticias = await _servicosNoticias.Buscar(numeroPagina, tamanhoPagina);
             return Ok(_mapper.Map<IEnumerable<NoticiaResponseDto>>(noticias.noticias));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(
+           NoticiaRequestDto body)
+        {
+            //var noticias = await _servicosNoticias.Buscar(numeroPagina, tamanhoPagina);
+            //return Ok(_mapper.Map<IEnumerable<NoticiaResponseDto>>(noticias.noticias));
+            return Ok();
+        }
     }
 }
