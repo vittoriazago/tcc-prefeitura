@@ -16,9 +16,9 @@ namespace Prefeitura.Negocio.Dominio.Agendamentos
 
 
         [ForeignKey("IdAgendamentoSolicitacao")]
-        public AgendamentoSolicitacao Solicitacao { get; set; }
+        public virtual AgendamentoSolicitacao Solicitacao { get; set; }
 
         [ForeignKey("IdUsuario")]
-        public Usuario Usuario { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

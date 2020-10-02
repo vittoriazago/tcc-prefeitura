@@ -20,13 +20,13 @@ namespace Prefeitura.Negocio.Dominio.Financeiro
             }
         }
         [ForeignKey("IdPessoa")]
-        public Pessoa Pessoa { get; set; }
+        public virtual Pessoa Pessoa { get; set; }
         [ForeignKey("IdCidade")]
-        public Cidade Cidade  { get; set; }
+        public virtual Cidade Cidade  { get; set; }
 
 
-        public ICollection<FuncionarioHistorico> ListaHistorico { get; set; }
-        public ICollection<Holerite> ListaHolerite { get; set; }
-        public ICollection<PontoRegistro> ListaPontoRegistro { get; set; }
+        public virtual ICollection<FuncionarioHistorico> ListaHistorico { get; set; }
+        public virtual ICollection<Holerite> ListaHolerite { get; set; }
+        public virtual ICollection<PontoRegistro> ListaPontoRegistro { get; set; }
     }
 }

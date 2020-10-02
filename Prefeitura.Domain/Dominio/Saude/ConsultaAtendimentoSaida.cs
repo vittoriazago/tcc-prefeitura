@@ -12,6 +12,6 @@ namespace Prefeitura.Negocio.Dominio.Saude
 
 
         [ForeignKey("IdConsultaAtendimento")]
-        public ConsultaAtendimento ConsultaAtendimento { get; set; }
+        public virtual ConsultaAtendimento ConsultaAtendimento { get; set; }
     }
 }

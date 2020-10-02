@@ -14,12 +14,12 @@ namespace Prefeitura.Negocio.Dominio.Saude
         public DateTime? DataHoraFinal { get; set; }
 
         [ForeignKey("IdPessoa")]
-        public Pessoa Pessoa { get; set; }
+        public virtual Pessoa Pessoa { get; set; }
         [ForeignKey("IdMedico")]
-        public Medico Medico { get; set; }
+        public virtual Medico Medico { get; set; }
         [ForeignKey("IdHospital")]
-        public Hospital Hospital { get; set; }
+        public virtual Hospital Hospital { get; set; }
 
-        public ICollection<ConsultaAtendimentoSaida> ListaConsultaAtendimentoSaida { get; set; }
+        public virtual ICollection<ConsultaAtendimentoSaida> ListaConsultaAtendimentoSaida { get; set; }
     }
 }

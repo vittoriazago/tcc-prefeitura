@@ -7,6 +7,6 @@ namespace Prefeitura.Negocio.Dominio
 {
     public class Role : IdentityRole<int>
     {
-        public List<UsuarioRole> UsuarioRoles { get; set; }
+        public virtual List<UsuarioRole> UsuarioRoles { get; set; }
     }
 }

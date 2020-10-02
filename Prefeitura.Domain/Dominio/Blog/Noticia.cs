@@ -12,11 +12,11 @@ namespace Prefeitura.Negocio.Dominio.Blog
         public string ConteudoHtml { get; set; }
         public NoticiaSituacaoTipo Situacao { get { return ListaHistorico.Single(h => h.Ativo).Situacao; } }
 
-        public ICollection<NoticiaTag> ListaNoticiaTag { get; set; }
-        public ICollection<NoticiaAutor> ListaAutor { get; set; }
-        public ICollection<NoticiaHistorico> ListaHistorico { get; set; }
-        public ICollection<Visualizacao> ListaVisualizacao { get; set; }
-        public ICollection<Comentario> ListaComentario { get; set; }
-        public ICollection<NoticiaCidade> ListaCidade { get; set; }
+        public virtual ICollection<NoticiaTag> ListaNoticiaTag { get; set; }
+        public virtual ICollection<NoticiaAutor> ListaAutor { get; set; }
+        public virtual ICollection<NoticiaHistorico> ListaHistorico { get; set; }
+        public virtual ICollection<Visualizacao> ListaVisualizacao { get; set; }
+        public virtual ICollection<Comentario> ListaComentario { get; set; }
+        public virtual ICollection<NoticiaCidade> ListaCidade { get; set; }
     }
 }

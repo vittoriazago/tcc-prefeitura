@@ -13,10 +13,10 @@ namespace Prefeitura.Negocio.Dominio
 
         public bool Ativo { get; set; }
 
-        public List<UsuarioRole> UsuarioRoles { get; set; }
+        public virtual List<UsuarioRole> UsuarioRoles { get; set; }
 
         [ForeignKey("IdPessoa")]
-        public Pessoa Pessoa { get; set; }
+        public virtual Pessoa Pessoa { get; set; }
 
     }
 }

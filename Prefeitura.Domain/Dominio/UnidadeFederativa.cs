@@ -18,7 +18,7 @@ namespace Prefeitura.Negocio.Dominio
 
         public string Sigla { get; set; }
 
-        public ICollection<Cidade> ListaCidade { get; set; }
+        public virtual ICollection<Cidade> ListaCidade { get; set; }
 
     }
 }

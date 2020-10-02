@@ -12,6 +12,6 @@ namespace Prefeitura.Negocio.Dominio.Saude
 
 
         [ForeignKey("IdCidade")]
-        public Cidade Cidade { get; set; }
+        public virtual Cidade Cidade { get; set; }
     }
 }

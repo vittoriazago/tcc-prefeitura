@@ -13,9 +13,9 @@ namespace Prefeitura.Negocio.Dominio.Blog
         public int IdTag { get; set; }
 
         [ForeignKey("IdTag")]
-        public Tag Tag { get; set; }
+        public virtual Tag Tag { get; set; }
 
         [ForeignKey("IdNoticia")]
-        public Noticia Noticia { get; set; }
+        public virtual Noticia Noticia { get; set; }
     }
 }

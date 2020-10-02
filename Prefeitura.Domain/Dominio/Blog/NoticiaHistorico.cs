@@ -16,8 +16,8 @@ namespace Prefeitura.Negocio.Dominio.Blog
 
 
         [ForeignKey("IdNoticia")]
-        public Noticia Noticia { get; set; }
+        public virtual Noticia Noticia { get; set; }
         [ForeignKey("IdUsuario")]
-        public Usuario Usuario { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

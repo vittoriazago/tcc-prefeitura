@@ -38,7 +38,10 @@ namespace Prefeitura.Negocio
         public DbSet<Medico> Medico { get; set; }
 
         public DbSet<SuporteSolicitacao> SuporteSolicitacoes { get; set; }
-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

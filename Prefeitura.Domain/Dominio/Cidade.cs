@@ -22,7 +22,7 @@ namespace Prefeitura.Negocio.Dominio
         public int IdUnidadeFederativa { get; set; }
 
         [ForeignKey("IdUnidadeFederativa")]
-        public UnidadeFederativa UnidadeFederativa { get; set; }
+        public virtual UnidadeFederativa UnidadeFederativa { get; set; }
 
     }
 }

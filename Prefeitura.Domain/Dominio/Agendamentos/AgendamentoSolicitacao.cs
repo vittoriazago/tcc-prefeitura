@@ -20,13 +20,13 @@ namespace Prefeitura.Negocio.Dominio.Agendamentos
         public AgendamentoSolicitacaoSituacaoTipo Situacao { get { return ListaHistorico.Single(h => h.Ativo).Situacao; } }
 
         [ForeignKey("IdAgendamento")]
-        public Agendamento Agendamento { get; set; }
+        public virtual Agendamento Agendamento { get; set; }
 
         [ForeignKey("IdCidade")]
-        public Cidade Cidade  { get; set; }
+        public virtual Cidade Cidade  { get; set; }
 
         [ForeignKey("IdPessoa")]
-        public Pessoa Pessoa { get; set; }
-        public ICollection<AgendamentoSolicitacaoHistorico> ListaHistorico { get; set; }
+        public virtual Pessoa Pessoa { get; set; }
+        public virtual ICollection<AgendamentoSolicitacaoHistorico> ListaHistorico { get; set; }
     }
 }

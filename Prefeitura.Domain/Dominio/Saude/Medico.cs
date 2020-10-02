@@ -12,6 +12,6 @@ namespace Prefeitura.Negocio.Dominio.Saude
         public string Crm { get; set; }
 
         [ForeignKey("IdFuncionario")]
-        public Funcionario Funcionario { get; set; }
+        public virtual Funcionario Funcionario { get; set; }
     }
 }

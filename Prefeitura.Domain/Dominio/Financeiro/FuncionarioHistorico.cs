@@ -16,8 +16,8 @@ namespace Prefeitura.Negocio.Dominio.Financeiro
 
 
         [ForeignKey("IdFuncionario")]
-        public Funcionario Funcionario { get; set; }
+        public virtual Funcionario Funcionario { get; set; }
         [ForeignKey("IdUsuario")]
-        public Usuario Usuario { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }
