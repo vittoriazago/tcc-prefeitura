@@ -27,7 +27,9 @@ namespace Prefeitura.Negocio.Servicos
             int numeroPagina = 1,
             int? tamanhoPagina = null)
         {
-            var noticias = _contexto.Noticias.AsQueryable();
+            var noticias = _contexto.Noticias
+                                        .Include(c => c.ListaHistorico)
+                                        .AsQueryable();
 
             return await noticias.Paginacao(numeroPagina, tamanhoPagina);
         }
@@ -40,7 +42,32 @@ namespace Prefeitura.Negocio.Servicos
         public async Task<Noticia> AdicionarNoticia(Noticia noticia)
         {
             await _contexto.AddAsync(noticia).ConfigureAwait(false);
+            await _contexto.SaveChangesAsync().ConfigureAwait(false);
 
+            await _contexto.AddAsync(new NoticiaHistorico()
+            {
+                IdNoticia = noticia.Id,
+                Ativo = true,
+                DataHora = DateTime.Now,
+                Situacao = noticia.ListaHistorico.First().Situacao,
+                IdUsuario = noticia.ListaHistorico.First().IdUsuario,
+
+            }).ConfigureAwait(false);
+
+            noticia.ListaAutor.ToList().ForEach(async n => {
+                await _contexto.AddAsync(new NoticiaAutor
+                {
+                    IdAutor = n.IdAutor,
+                    IdNoticia = noticia.Id
+                });
+            });
+            noticia.ListaCidade.ToList().ForEach(async n => {
+                await _contexto.AddAsync(new NoticiaCidade
+                {
+                    IdCidade = n.IdCidade,
+                    IdNoticia = noticia.Id
+                });
+            });
             await _contexto.SaveChangesAsync().ConfigureAwait(false);
 
             return noticia;

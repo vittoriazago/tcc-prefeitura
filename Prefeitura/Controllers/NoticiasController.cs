@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Prefeitura.Models;
+using Prefeitura.Negocio.Dominio.Blog;
 using Prefeitura.Negocio.Servicos;
 
 namespace Prefeitura.Controllers
@@ -40,16 +41,20 @@ namespace Prefeitura.Controllers
             int? tamanhoPagina = null)
         {
             var noticias = await _servicosNoticias.Buscar(numeroPagina, tamanhoPagina);
-            return Ok(_mapper.Map<IEnumerable<NoticiaResponseDto>>(noticias.noticias));
+            return Ok(_mapper.Map<IEnumerable<NoticiaResponseDto>>(noticias.noticias.ToList()));
         }
 
+        /// <summary>
+        /// Criar nova noticia
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Post(
            NoticiaRequestDto body)
         {
-            //var noticias = await _servicosNoticias.Buscar(numeroPagina, tamanhoPagina);
-            //return Ok(_mapper.Map<IEnumerable<NoticiaResponseDto>>(noticias.noticias));
-            return Ok();
+            var noticia = await _servicosNoticias.AdicionarNoticia(_mapper.Map<Noticia>(body));
+            return Created("", _mapper.Map<NoticiaResponseDto>(noticia));
         }
     }
 }
