@@ -35,5 +35,23 @@ namespace Prefeitura.Negocio.Servicos
             return await consultas.Paginacao(numeroPagina, tamanhoPagina);
         }
 
+        /// <summary>
+        /// Nova consulta
+        /// </summary>
+        /// <param name="consulta"></param>
+        /// <returns></returns>
+        public async Task<ConsultaAtendimento> AdicionarConsulta(ConsultaAtendimento consulta)
+        {
+            await _contexto.AddAsync(consulta).ConfigureAwait(false);
+
+            consulta.ListaConsultaAtendimentoSaida.ToList().ForEach(async n => {
+                await _contexto.AddAsync(new ConsultaAtendimentoSaida
+                {
+                    IdConsultaAtendimento = consulta.Id,
+                    Observacao = n.Observacao
+                });
+            });
+            return consulta;
+        }
     }
 }

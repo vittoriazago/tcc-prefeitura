@@ -34,5 +34,28 @@ namespace Prefeitura.Negocio.Servicos
             return await solicitacaos.Paginacao(numeroPagina, tamanhoPagina);
         }
 
+        /// <summary>
+        /// Solicitar agendamento
+        /// </summary>
+        /// <param name="consulta"></param>
+        /// <returns></returns>
+        public async Task<AgendamentoSolicitacao> AdicionarAgendamentoSolicitacao(AgendamentoSolicitacao solicitacao)
+        {
+            await _contexto.AddAsync(solicitacao).ConfigureAwait(false);
+            await _contexto.SaveChangesAsync().ConfigureAwait(false);
+
+            await _contexto.AddAsync(new AgendamentoSolicitacaoHistorico()
+            {
+                IdAgendamentoSolicitacao = solicitacao.Id,
+                Ativo = true,
+                DataHora = DateTime.Now,
+                Situacao = solicitacao.ListaHistorico.First().Situacao,
+                IdUsuario = solicitacao.ListaHistorico.First().IdUsuario,
+
+            }).ConfigureAwait(false);
+            await _contexto.SaveChangesAsync().ConfigureAwait(false);
+
+            return solicitacao;
+        }
     }
 }

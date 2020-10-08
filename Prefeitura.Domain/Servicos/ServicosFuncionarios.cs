@@ -1,5 +1,8 @@
-﻿using Prefeitura.Negocio.Dominio.Financeiro;
+﻿using Microsoft.EntityFrameworkCore;
+using Prefeitura.Negocio.Dominio.Financeiro;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Prefeitura.Negocio.Servicos
@@ -28,5 +31,77 @@ namespace Prefeitura.Negocio.Servicos
             return await funcionarios.Paginacao(numeroPagina, tamanhoPagina);
         }
 
+        /// <summary>
+        /// Buscar pontos de funcionario
+        /// </summary>
+        /// <param name="idFuncionario"></param>
+        /// <param name="periodoInicial"></param>
+        /// <param name="periodoFinal"></param>
+        /// <returns></returns>
+        public Task<List<PontoRegistro>> BuscarPontos(int idFuncionario, DateTime periodoInicial, DateTime periodoFinal)
+        {
+            return _contexto.FuncionarioPontoRegistros.AsQueryable()
+                        .Where(p => p.IdFuncionario == idFuncionario
+                                && p.DataHoraCadastro >= periodoInicial
+                                && p.DataHoraCadastro <= periodoFinal).ToListAsync();
+        }
+
+        /// <summary>
+        /// Novo funcionario
+        /// </summary>
+        /// <param name="funcionario"></param>
+        /// <returns></returns>
+        public async Task<Funcionario> AdicionarFuncionario(Funcionario funcionario)
+        {
+            await _contexto.AddAsync(funcionario).ConfigureAwait(false);
+            await _contexto.SaveChangesAsync().ConfigureAwait(false);
+
+            await _contexto.AddAsync(new FuncionarioHistorico()
+            {
+                IdFuncionario = funcionario.Id,
+                Ativo = true,
+                DataHora = DateTime.Now,
+                Situacao = funcionario.ListaHistorico.First().Situacao,
+                IdUsuario = funcionario.ListaHistorico.First().IdUsuario,
+
+            }).ConfigureAwait(false);
+            await _contexto.SaveChangesAsync().ConfigureAwait(false);
+
+            return funcionario;
+        }
+
+        /// <summary>
+        /// Novo holerite
+        /// </summary>
+        /// <param name="holerite"></param>
+        /// <returns></returns>
+        public async Task AdicionarHolerite(int id, byte[] bytesArquivo)
+        {
+            await _contexto.AddAsync(new Holerite()
+            {
+                IdFuncionario = id,
+                DataHoraCadastro = DateTime.Now,
+                Arquivo = bytesArquivo
+
+            }).ConfigureAwait(false);
+            await _contexto.SaveChangesAsync().ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Novo registro de ponto
+        /// </summary>
+        /// <param name="ponto"></param>
+        /// <returns></returns>
+        public async Task AdicionarPontoRegistro(int idFuncionario)
+        {
+            await _contexto.AddAsync(new PontoRegistro()
+            {
+                IdFuncionario = idFuncionario,
+                DataHoraCadastro = DateTime.Now,
+
+            }).ConfigureAwait(false);
+            await _contexto.SaveChangesAsync().ConfigureAwait(false);
+
+        }
     }
 }

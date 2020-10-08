@@ -8,6 +8,15 @@ namespace Prefeitura.Negocio.Dominio.Agendamentos
 {
     public class Agendamento : Entidade
     {
+        public Agendamento(int id,
+            string descricao, DateTime dataHoraDisponivelInicial, DateTime dataHoraDisponivelFinal)
+        {
+            Id = id;
+            Descricao = descricao;
+            DataHoraDisponivelInicial = dataHoraDisponivelInicial;
+            DataHoraDisponivelFinal = dataHoraDisponivelFinal;
+        }
+
         public string Descricao { get; set; }
         public DateTime DataHoraDisponivelInicial { get; set; }
         public DateTime DataHoraDisponivelFinal { get; set; }

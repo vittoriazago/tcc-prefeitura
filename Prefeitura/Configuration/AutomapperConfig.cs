@@ -11,15 +11,46 @@ using System.Linq;
 
 namespace Prefeitura.Configuration
 {
-    public class AutomapperConfig : Profile
+    public class AutoMapperConfig : Profile
     {
-        public AutomapperConfig()
+        public AutoMapperConfig()
         {
-            CreateMap<Funcionario, FuncionariosResponseDto>();
-            //  .ForMember(f => f.Situacao, r => r.MapFrom(f => f.sit));
+            CreateMap<FuncionarioRequestDto, Funcionario>()
+               .ForMember(f => f.ListaHistorico, r => r.MapFrom(f => new List<FuncionarioHistorico>
+               {
+                   new FuncionarioHistorico()
+                   {
+                       Situacao = f.Situacao,
+                       IdUsuario = 1
+                   }
+               }));
+            CreateMap<Funcionario, FuncionarioResponseDto>()
+              .ForMember(f => f.Situacao, r => r.MapFrom(f => f.Situacao));
+
+
             CreateMap<Agendamento, AgendamentoResponseDto>();
+
+            CreateMap<AgendamentoSolicitacaoRequestDto, AgendamentoSolicitacao>()
+               .ForMember(f => f.ListaHistorico, r => r.MapFrom(f => new List<AgendamentoSolicitacaoHistorico>
+               {
+                   new AgendamentoSolicitacaoHistorico()
+                   {
+                       Situacao = f.Situacao,
+                       IdUsuario = 1
+                   }
+               }));
+
+            CreateMap<AgendamentoSolicitacao, AgendamentoSolicitacao>();
+
             CreateMap<ConsultaAtendimento, ConsultaAtendimentoResponseDto>();
 
+            CreateMap<ConsultaRequestDto, ConsultaAtendimento>()
+               .ForMember(f => f.ListaConsultaAtendimentoSaida, r => r.MapFrom(f => f.ListaConsultaAtendimentoSaida.Select(
+                   saida => new ConsultaAtendimentoSaida()
+                   {
+                       Observacao = saida.Observacao,
+                   }
+               )));
 
             CreateMap<Noticia, NoticiaResponseDto>()
               .ForMember(f => f.NomesAutores, r => r.MapFrom((f, s) => f.ListaAutor.Select(a => a.Autor?.Nome)));

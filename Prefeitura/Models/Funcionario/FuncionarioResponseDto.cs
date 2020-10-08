@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Prefeitura.Models
 {
-    public class FuncionariosResponseDto
+    public class FuncionarioResponseDto
     {
         public int IdPessoa { get; set; }
         public int IdCidade { get; set; }
