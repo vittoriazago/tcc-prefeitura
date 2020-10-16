@@ -7,6 +7,16 @@ namespace Prefeitura.Negocio.Dominio.Saude
 {
     public class Hospital : Entidade
     {
+        public Hospital()
+        {
+        }
+        public Hospital(int idHospital, int idCidade, string nomeHospital)
+        {
+            Id = idHospital;
+            IdCidade = idCidade;
+            NomeHospital = nomeHospital;
+        }
+
         public int IdCidade { get; set; }
         public string NomeHospital { get; set; }
 

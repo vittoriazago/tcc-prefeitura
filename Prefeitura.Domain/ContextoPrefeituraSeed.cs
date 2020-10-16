@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Prefeitura.Negocio.Dominio;
+using Prefeitura.Negocio.Dominio.Agendamentos;
+using Prefeitura.Negocio.Dominio.Saude;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,8 @@ namespace Prefeitura.Negocio
         public static void SeedInicial(this ModelBuilder modelBuilder)
         {
             modelBuilder.SeedUFsCidades();
+            modelBuilder.SeedAgendamentos();
+            modelBuilder.SeedHospital();
 
             const int ADMIN_ID = 1;
             const int ROLE_ID = ADMIN_ID;
@@ -64,6 +68,32 @@ namespace Prefeitura.Negocio
             {
                 modelBuilder.Entity<UnidadeFederativa>().HasData(uf.Item1);
                 modelBuilder.Entity<Cidade>().HasData(uf.Item2);
+            });
+        }
+        public static void SeedAgendamentos(this ModelBuilder modelBuilder)
+        {
+            var dados = new List<Agendamento>()
+            {
+                new Agendamento(1, "Solicitar carteira de trabalho", DateTime.Now, DateTime.Now.AddHours(3)),
+                new Agendamento(2, "Minha casa minha vida", DateTime.Now, DateTime.Now.AddHours(3))
+            };
+
+            dados.ForEach(ag =>
+            {
+                modelBuilder.Entity<Agendamento>().HasData(ag);
+            });
+        }
+        public static void SeedHospital(this ModelBuilder modelBuilder)
+        {
+            var dados = new List<Hospital>()
+            {
+                new Hospital(1, 1, "Hospital Saúde SP"),
+                new Hospital(2, 1, "Hospital São José")
+            };
+
+            dados.ForEach(ag =>
+            {
+                modelBuilder.Entity<Hospital>().HasData(ag);
             });
         }
     }
