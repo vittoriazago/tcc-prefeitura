@@ -121,7 +121,7 @@ namespace Prefeitura
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            if (!env.IsDevelopment())
+            //if (!env.IsDevelopment())
             {
                 app.UseSpaStaticFiles();
             }

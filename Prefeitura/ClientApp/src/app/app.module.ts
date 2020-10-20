@@ -11,6 +11,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { NavMenuComponent } from './core/components/nav-menu/nav-menu.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { NavBarComponent } from './core/components/nav-bar/nav-bar.component';
+import { BlogModule } from './blog/blog.module';
 
 @NgModule({
   declarations: [
@@ -20,12 +21,13 @@ import { NavBarComponent } from './core/components/nav-bar/nav-bar.component';
     FooterComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    BlogModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
