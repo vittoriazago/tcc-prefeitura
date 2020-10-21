@@ -12,6 +12,7 @@ import { NavMenuComponent } from './core/components/nav-menu/nav-menu.component'
 import { FooterComponent } from './core/components/footer/footer.component';
 import { NavBarComponent } from './core/components/nav-bar/nav-bar.component';
 import { BlogModule } from './blog/blog.module';
+import { OuvidoriaComponent } from './ouvidoria/ouvidoria.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { BlogModule } from './blog/blog.module';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
+    OuvidoriaComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,6 +34,7 @@ import { BlogModule } from './blog/blog.module';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'ouvidoria', component: OuvidoriaComponent },
     ])
   ],
   providers: [],
