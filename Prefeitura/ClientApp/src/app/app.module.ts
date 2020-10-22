@@ -6,13 +6,12 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { NavMenuComponent } from './core/components/nav-menu/nav-menu.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { NavBarComponent } from './core/components/nav-bar/nav-bar.component';
 import { BlogModule } from './blog/blog.module';
 import { OuvidoriaComponent } from './ouvidoria/ouvidoria.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,19 +20,16 @@ import { OuvidoriaComponent } from './ouvidoria/ouvidoria.component';
     NavBarComponent,
     FooterComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     OuvidoriaComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    CommonModule,
     BlogModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'ouvidoria', component: OuvidoriaComponent },
     ])
   ],

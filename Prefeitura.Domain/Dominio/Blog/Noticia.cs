@@ -10,6 +10,7 @@ namespace Prefeitura.Negocio.Dominio.Blog
     {
         public string Descricao { get; set; }
         public string ConteudoHtml { get; set; }
+        public DateTime DataCadastro { get; set; }
         public NoticiaSituacaoTipo Situacao { get { return ListaHistorico.Single(h => h.Ativo).Situacao; } }
 
         public virtual ICollection<NoticiaTag> ListaNoticiaTag { get; set; }
