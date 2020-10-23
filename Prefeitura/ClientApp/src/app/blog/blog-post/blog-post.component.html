@@ -2,15 +2,10 @@
 <main role="main" class="container">
   <div class="row">
     <div class="col-md-8 blog-main">
-      <h3 class="pb-3 mb-4 font-italic border-bottom">
-        From the Firehose
-      </h3>
-
       <div class="blog-post" *ngFor="let noticia of noticias">
         <h2 class="blog-post-title">{{ noticia.Descricao }}</h2>
         <p class="blog-post-meta">{{ noticia.DataCadastro }}. Autoria: {{ noticia.NomesAutores }}</p>
-
-        {{ noticia.ConteudoHtml }}        
+        <div [innerHTML]="noticia.ConteudoHtml"></div>
       </div><!-- /.blog-post -->
 
       <nav class="blog-pagination">
@@ -20,7 +15,7 @@
 
     </div><!-- /.blog-main -->
 
-    <app-blog-side></app-blog-side>
+    <app-blog-side class="col-md-4 blog-sidebar"></app-blog-side>
   </div><!-- /.row -->
 
 </main>

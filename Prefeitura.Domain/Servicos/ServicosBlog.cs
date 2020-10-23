@@ -41,6 +41,8 @@ namespace Prefeitura.Negocio.Servicos
         /// <returns></returns>
         public async Task<Noticia> AdicionarNoticia(Noticia noticia)
         {
+            noticia.DataCadastro = DateTime.Now;
+
             await _contexto.AddAsync(noticia).ConfigureAwait(false);
             await _contexto.SaveChangesAsync().ConfigureAwait(false);
 
