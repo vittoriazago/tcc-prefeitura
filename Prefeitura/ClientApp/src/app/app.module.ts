@@ -5,14 +5,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './core/components/nav-menu/nav-menu.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { NavBarComponent } from './core/components/nav-bar/nav-bar.component';
-import { BlogModule } from './blog/blog.module';
-import { OuvidoriaComponent } from './ouvidoria/ouvidoria.component';
+import { BlogModule } from './pages/blog/blog.module';
 import { CommonModule } from '@angular/common';
-import { BlogPostListComponent } from './blog/blog-post-list/blog-post-list.component';
+import { OuvidoriaComponent } from './pages/ouvidoria/ouvidoria.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,7 @@ import { BlogPostListComponent } from './blog/blog-post-list/blog-post-list.comp
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'ouvidoria', component: OuvidoriaComponent },
-      { path: 'blog', outlet: '', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
+      { path: 'blog', outlet: '', loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule) },
     ])
   ],
   providers: [],

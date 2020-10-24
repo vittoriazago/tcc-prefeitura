@@ -20,7 +20,6 @@ export class PrefeituraService {
   }
 
   pesquisaNoticia(id: string): Observable<NoticiaModel> {
-    console.log(this.baseUrl);
     return this.httpClient.get<NoticiaModel>(`${this.baseUrl}noticias/${id}`);
   }
 }
