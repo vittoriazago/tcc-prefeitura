@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './core/components/nav-menu/nav-menu.component';
 import { FooterComponent } from './core/components/footer/footer.component';
@@ -30,6 +31,7 @@ import { AutenticacaoComponent } from './pages/autenticacao/autenticacao.compone
     FormsModule,
     CommonModule,
     BlogModule,
+    FontAwesomeModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'autenticacao', component: AutenticacaoComponent },

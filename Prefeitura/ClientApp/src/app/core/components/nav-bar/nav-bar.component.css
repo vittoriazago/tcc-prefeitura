@@ -30,3 +30,8 @@ html {
 .blog-header-logo:hover {
   text-decoration: none;
 }
+
+a,
+a i {
+    cursor: pointer;
+}
