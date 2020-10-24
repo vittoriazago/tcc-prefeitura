@@ -1,21 +1,5 @@
-
-<main role="main" class="container">
-  <div class="row">
-    <div class="col-md-8 blog-main">
-      <div class="blog-post" *ngFor="let noticia of noticias">
-        <h2 class="blog-post-title">{{ noticia.Descricao }}</h2>
-        <p class="blog-post-meta">{{ noticia.DataCadastro }}. Autoria: {{ noticia.NomesAutores }}</p>
-        <div [innerHTML]="noticia.ConteudoHtml"></div>
-      </div><!-- /.blog-post -->
-
-      <nav class="blog-pagination">
-        <a class="btn btn-outline-primary" href="#">Older</a>
-        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-      </nav>
-
-    </div><!-- /.blog-main -->
-
-    <app-blog-side class="col-md-4 blog-sidebar"></app-blog-side>
-  </div><!-- /.row -->
-
-</main>
+<div class="blog-post" *ngIf="noticia">
+  <h2 class="blog-post-title">{{ noticia.Descricao }}</h2>
+  <p class="blog-post-meta">{{ noticia.DataCadastro | date: 'dd/MM/yyyy' }}. Autoria: {{ noticia.NomesAutores.join(', ') }}</p>
+  <div [innerHTML]="noticia.ConteudoHtml"></div>
+</div><!-- /.blog-post -->

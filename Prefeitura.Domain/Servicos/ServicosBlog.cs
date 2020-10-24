@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Prefeitura.Negocio.Dominio.Blog;
+using Prefeitura.Negocio.Dominio.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,19 @@ namespace Prefeitura.Negocio.Servicos
         }
 
         /// <summary>
+        /// Buscar noticia por id
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Noticia> Buscar(int id)
+        {
+            var noticia = await _contexto.Noticias
+                                        .Include(c => c.ListaHistorico)
+                                        .AsQueryable()
+                                        .Where(n => n.Id == id)
+                                        .FirstOrDefaultAsync();
+            return noticia;
+        }
+        /// <summary>
         /// Buscar noticias com paginação
         /// </summary>
         /// <param name="numeroPagina">Número da página</param>
@@ -25,11 +39,18 @@ namespace Prefeitura.Negocio.Servicos
         /// <returns></returns>
         public async Task<(int quantidadeTotal, IQueryable<Noticia> noticias)> Buscar(
             int numeroPagina = 1,
-            int? tamanhoPagina = null)
+            int? tamanhoPagina = null,
+            NoticiaSituacaoTipo? situacao = null,
+            DateTime? dataFinal = null)
         {
             var noticias = _contexto.Noticias
                                         .Include(c => c.ListaHistorico)
                                         .AsQueryable();
+
+            if (situacao != null)
+                noticias = noticias.Where(n => n.Situacao == situacao);
+            if (dataFinal != null)
+                noticias = noticias.Where(n => n.DataCadastro <= dataFinal);
 
             return await noticias.Paginacao(numeroPagina, tamanhoPagina);
         }

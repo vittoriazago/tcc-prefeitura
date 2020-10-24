@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { NoticiaModel } from 'src/app/shared/models/noticia.model';
 import { PrefeituraService } from 'src/app/shared/prefeitura.service';
 
@@ -9,22 +10,34 @@ import { PrefeituraService } from 'src/app/shared/prefeitura.service';
 })
 export class BlogPostComponent  implements OnInit {
 
-  noticias: NoticiaModel[] = [];
+  @Input() noticia: NoticiaModel;
+  id: string;
 
   constructor(
+    private route: ActivatedRoute,
     private prefeituraService: PrefeituraService
-  ) { }
+  ) {
+   }
 
   ngOnInit() {
-    this.pesquisaNoticias(1, 10);
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const id = params.get('id');
+      if (id) {
+        this.id = id;
+        this.pesquisaNoticia();
+      }
+      });
+      console.log(this.route.paramMap);
   }
 
-  pesquisaNoticias(numeroPagina: number, tamanhoPagina: number) {
-    this.prefeituraService.pesquisaNoticias(numeroPagina, tamanhoPagina, '')
+  pesquisaNoticia() {
+    this.prefeituraService.pesquisaNoticia(this.id)
       .subscribe(
         result => {
-          this.noticias = result;
+        console.log(result);
+          this.noticia = result;
         }
     );
   }
+
 }

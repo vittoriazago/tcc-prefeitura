@@ -6,8 +6,9 @@ using System.Text;
 
 namespace Prefeitura.Models
 {
-    public class NoticiaResponseDto 
+    public class NoticiaResponseDto
     {
+        public int Id { get; set; }
         public string Descricao { get; set; }
         public string ConteudoHtml { get; set; }
         public DateTime DataCadastro { get; set; }

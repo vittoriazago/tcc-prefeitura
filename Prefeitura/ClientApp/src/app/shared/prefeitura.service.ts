@@ -18,4 +18,9 @@ export class PrefeituraService {
   pesquisaNoticias(numeroPagina: number, tamanhoPagina: number, data: string): Observable<NoticiaModel[]> {
     return this.httpClient.get<NoticiaModel[]>(`${this.baseUrl}noticias?numeroPagina=${numeroPagina}&tamanhoPagina=${tamanhoPagina}`);
   }
+
+  pesquisaNoticia(id: string): Observable<NoticiaModel> {
+    console.log(this.baseUrl);
+    return this.httpClient.get<NoticiaModel>(`${this.baseUrl}noticias/${id}`);
+  }
 }

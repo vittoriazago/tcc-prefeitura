@@ -12,6 +12,7 @@ import { NavBarComponent } from './core/components/nav-bar/nav-bar.component';
 import { BlogModule } from './blog/blog.module';
 import { OuvidoriaComponent } from './ouvidoria/ouvidoria.component';
 import { CommonModule } from '@angular/common';
+import { BlogPostListComponent } from './blog/blog-post-list/blog-post-list.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CommonModule } from '@angular/common';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'ouvidoria', component: OuvidoriaComponent },
+      { path: 'blog', outlet: '', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
     ])
   ],
   providers: [],

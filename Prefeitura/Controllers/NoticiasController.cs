@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Prefeitura.Models;
 using Prefeitura.Negocio.Dominio.Blog;
+using Prefeitura.Negocio.Dominio.Enums;
 using Prefeitura.Negocio.Servicos;
 
 namespace Prefeitura.Controllers
@@ -30,17 +31,32 @@ namespace Prefeitura.Controllers
         }
 
         /// <summary>
+        /// Buscar noticia por id
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var noticia = await _servicosNoticias.Buscar(id);
+            return Ok(_mapper.Map<NoticiaResponseDto>(noticia));
+        }
+
+        /// <summary>
         /// Buscar noticias por filtros
         /// </summary>
         /// <param name="numeroPagina"></param>
         /// <param name="tamanhoPagina"></param>
+        /// <param name="situacao"></param>
+        /// <param name="dataFinal"></param>
         /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Get(
             int numeroPagina = 1,
-            int? tamanhoPagina = null)
+            int? tamanhoPagina = null,
+            NoticiaSituacaoTipo? situacao = null,
+            DateTime? dataFinal = null)
         {
-            var noticias = await _servicosNoticias.Buscar(numeroPagina, tamanhoPagina);
+            var noticias = await _servicosNoticias.Buscar(numeroPagina, tamanhoPagina, situacao, dataFinal);
             return Ok(_mapper.Map<IEnumerable<NoticiaResponseDto>>(noticias.noticias.ToList()));
         }
 
