@@ -24,17 +24,16 @@ export class BlogPostComponent  implements OnInit {
       const id = params.get('id');
       if (id) {
         this.id = id;
+        console.log(id)
         this.pesquisaNoticia();
       }
       });
-      console.log(this.route.paramMap);
   }
 
   pesquisaNoticia() {
     this.prefeituraService.pesquisaNoticia(this.id)
       .subscribe(
         result => {
-        console.log(result);
           this.noticia = result;
         }
     );

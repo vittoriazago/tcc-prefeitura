@@ -12,6 +12,7 @@ import { BlogModule } from './pages/blog/blog.module';
 import { CommonModule } from '@angular/common';
 import { OuvidoriaComponent } from './pages/ouvidoria/ouvidoria.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AutenticacaoComponent } from './pages/autenticacao/autenticacao.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HomeComponent } from './pages/home/home.component';
     FooterComponent,
     HomeComponent,
     OuvidoriaComponent,
+    AutenticacaoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,8 +32,9 @@ import { HomeComponent } from './pages/home/home.component';
     BlogModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'autenticacao', component: AutenticacaoComponent },
       { path: 'ouvidoria', component: OuvidoriaComponent },
-      { path: 'blog', outlet: '', loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule) },
+      { path: 'blog', loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule) },
     ])
   ],
   providers: [],

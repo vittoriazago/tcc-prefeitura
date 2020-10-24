@@ -16,7 +16,8 @@ import { BlogSideComponent } from './blog-side/blog-side.component';
     FormsModule,
     CommonModule,
     RouterModule.forChild([
-      { path: ':id', component: BlogPostComponent },
+      { path: 'blog/:id', component: BlogPostComponent },
+      { path: 'blog', component: BlogPostListComponent },
     ])
   ],
   exports: [
