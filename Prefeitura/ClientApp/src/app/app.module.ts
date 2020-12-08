@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { OuvidoriaComponent } from './pages/ouvidoria/ouvidoria.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AutenticacaoComponent } from './pages/autenticacao/autenticacao.component';
+import { IptuConsultaComponent } from './pages/iptu/iptu-consulta/iptu-consulta.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { AutenticacaoComponent } from './pages/autenticacao/autenticacao.compone
     FooterComponent,
     HomeComponent,
     OuvidoriaComponent,
-    AutenticacaoComponent
+    AutenticacaoComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,6 +38,7 @@ import { AutenticacaoComponent } from './pages/autenticacao/autenticacao.compone
       { path: 'autenticacao', component: AutenticacaoComponent },
       { path: 'ouvidoria', component: OuvidoriaComponent },
       { path: 'blog', loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule) },
+      { path: 'iptu', loadChildren: () => import('./pages/iptu/iptu.module').then(m => m.IptuModule) },
     ])
   ],
   providers: [],
