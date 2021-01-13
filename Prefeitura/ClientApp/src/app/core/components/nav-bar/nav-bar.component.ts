@@ -16,6 +16,10 @@ export class NavBarComponent {
       return this.auth.isLoggedIn();
     }
 
+    getPerfil(): string {
+      return this.auth.getPerfil();
+    }
+
     logout() {
       this.auth.logout();
     }

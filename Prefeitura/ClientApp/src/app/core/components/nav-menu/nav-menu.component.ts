@@ -17,6 +17,10 @@ export class NavMenuComponent {
     return this.auth.isLoggedIn();
   }
 
+  getPerfil(): string {
+    return this.auth.getPerfil();
+  }
+
   collapse() {
     this.isExpanded = false;
   }

@@ -4,7 +4,7 @@
   >
     <div class="container"> 
       <img src="assets/images/logo.png" alt="logo mini" class="item-logo-nav">
-      <a class="blog-header-logo text-dark" [routerLink]="['/']">  Prefeitura</a>
+      <a class="blog-header-logo text-dark" [routerLink]="['/']">  Prefeitura de Bom Destino</a>
      
         <ul class="navbar-nav flex-grow">
           <li
@@ -16,7 +16,7 @@
                <i class="fas fa-sign-in-alt">  Acesso restrito</i>
             </a>
             <a class="nav-link text-dark" *ngIf="isLoggedIn()" (click)="logout()" >
-              <i class="fas fa-sign-out-alt">  Sair</i>
+              <i class="fas fa-sign-out-alt"> {{ getPerfil() }} Sair</i>
             </a>
           </li>
         </ul>
