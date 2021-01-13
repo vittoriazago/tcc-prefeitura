@@ -21,6 +21,15 @@ export class NavMenuComponent {
     return this.auth.getPerfil();
   }
 
+  getPerfilAcessoMunicipe(): boolean {
+    const perfil = this.auth.getPerfil();
+    return perfil === 'comum';
+  }
+  getPerfilAcessoServidor(): boolean {
+    const perfil = this.auth.getPerfil();
+    return perfil === 'servidor' || perfil === 'admin';
+  }
+
   collapse() {
     this.isExpanded = false;
   }

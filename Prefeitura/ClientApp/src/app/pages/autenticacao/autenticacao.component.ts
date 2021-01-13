@@ -20,16 +20,23 @@ export class AutenticacaoComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email:  ['', Validators.required],
+      login:  ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
   login() {
-    this.auth.login(this.loginForm.controls.email.value);
+    this.auth.login(this.loginForm.controls.login.value);
     this.router.navigateByUrl('', {skipLocationChange: true}).then(
       () => this.router.navigate(['/'])
     );
   }
 
+  isLoggedIn(): boolean {
+    return this.auth.isLoggedIn();
+  }
+
+  logout() {
+    this.auth.logout();
+  }
 }

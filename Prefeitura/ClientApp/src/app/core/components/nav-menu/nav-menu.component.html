@@ -43,16 +43,28 @@
               <a class="dropdown-item" [routerLink]="['/ouvidoria']" >Ouvidoria</a>
             </div>
           </li>
-          <li class="nav-item dropdown" *ngIf="getPerfil()">
+          <li *ngIf="getPerfilAcessoServidor()" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Integrações
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Vagas de emprego</a>
-              <a class="dropdown-item" href="#">Licitações</a>
-              <a class="dropdown-item" [routerLink]="['/iptu']">IPTU</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" [routerLink]="['/ouvidoria']" >Ouvidoria</a>
+              <a class="dropdown-item" href="#">Saúde do Cidadão</a>
+              <a class="dropdown-item" href="#">Serviços ao Cidadão</a>
+              <a class="dropdown-item" href="#">Gestão Estratégica de Projetos</a>
+              <a class="dropdown-item" href="#">Sistema Administrativo-Financeiro de Gestão Municipal</a>
+              <a class="dropdown-item" href="#">Administração Escolar Multiserial</a>
+              <a class="dropdown-item" href="#">Tributação Territorial Urbana e Rural</a>
+              <a class="dropdown-item" href="#">Informações Municipais Georreferenciadas</a>
+              <a class="dropdown-item" href="#">Business Intelligence</a>
+            </div>
+          </li> <li *ngIf="getPerfilAcessoMunicipe()" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Integrações
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Saúde do Cidadão</a>
+              <a class="dropdown-item" href="#">Serviços ao Cidadão</a>
+              <a class="dropdown-item" href="#">Gestão Estratégica de Projetos</a>
             </div>
           </li>
           <li class="nav-item">
