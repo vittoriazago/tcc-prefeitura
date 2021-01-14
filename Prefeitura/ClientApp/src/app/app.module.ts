@@ -15,6 +15,7 @@ import { OuvidoriaComponent } from './pages/ouvidoria/ouvidoria.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AutenticacaoComponent } from './pages/autenticacao/autenticacao.component';
 import { IptuConsultaComponent } from './pages/iptu/iptu-consulta/iptu-consulta.component';
+import { MgepComponent } from './pages/mgep/mgep.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { IptuConsultaComponent } from './pages/iptu/iptu-consulta/iptu-consulta.
     FooterComponent,
     HomeComponent,
     OuvidoriaComponent,
+    MgepComponent,
     AutenticacaoComponent,
   ],
   imports: [
@@ -38,6 +40,7 @@ import { IptuConsultaComponent } from './pages/iptu/iptu-consulta/iptu-consulta.
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'autenticacao', component: AutenticacaoComponent },
       { path: 'ouvidoria', component: OuvidoriaComponent },
+      { path: 'gestaoprojetos', component: MgepComponent },
       { path: 'blog', loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule) },
       { path: 'iptu', loadChildren: () => import('./pages/iptu/iptu.module').then(m => m.IptuModule) },
     ])
