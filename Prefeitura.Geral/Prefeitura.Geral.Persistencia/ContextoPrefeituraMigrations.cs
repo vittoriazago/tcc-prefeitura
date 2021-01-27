@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Prefeitura.Geral.Negocio;
+using System;
 
 namespace Prefeitura.Geral.Persistencia
 {
@@ -11,7 +12,9 @@ namespace Prefeitura.Geral.Persistencia
 
         public ContextoPrefeituraMigrations() :
             base(new DbContextOptionsBuilder<ContextoPrefeitura>()
-                .UseSqlServer(Config.GetConnectionString("DefaultConnection")).Options)
+                //.UseSqlServer(Config.GetConnectionString("DefaultConnection")).Options
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options
+                )
         {
         }
     }

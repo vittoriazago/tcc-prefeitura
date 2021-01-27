@@ -10,8 +10,8 @@ using Prefeitura.Geral.Persistencia;
 namespace Prefeitura.Geral.Persistencia.Migrations
 {
     [DbContext(typeof(ContextoPrefeituraMigrations))]
-    [Migration("20201022030115_NoticiaData")]
-    partial class NoticiaData
+    [Migration("20210127032942_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,15 +50,15 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         new
                         {
                             Id = 1,
-                            DataHoraDisponivelFinal = new DateTime(2020, 10, 22, 3, 1, 13, 804, DateTimeKind.Local).AddTicks(5946),
-                            DataHoraDisponivelInicial = new DateTime(2020, 10, 22, 0, 1, 13, 802, DateTimeKind.Local).AddTicks(9242),
+                            DataHoraDisponivelFinal = new DateTime(2021, 1, 27, 3, 29, 40, 917, DateTimeKind.Local).AddTicks(8976),
+                            DataHoraDisponivelInicial = new DateTime(2021, 1, 27, 0, 29, 40, 916, DateTimeKind.Local).AddTicks(4616),
                             Descricao = "Solicitar carteira de trabalho"
                         },
                         new
                         {
                             Id = 2,
-                            DataHoraDisponivelFinal = new DateTime(2020, 10, 22, 3, 1, 13, 805, DateTimeKind.Local).AddTicks(1795),
-                            DataHoraDisponivelInicial = new DateTime(2020, 10, 22, 0, 1, 13, 805, DateTimeKind.Local).AddTicks(1759),
+                            DataHoraDisponivelFinal = new DateTime(2021, 1, 27, 3, 29, 40, 918, DateTimeKind.Local).AddTicks(2878),
+                            DataHoraDisponivelInicial = new DateTime(2021, 1, 27, 0, 29, 40, 918, DateTimeKind.Local).AddTicks(2870),
                             Descricao = "Minha casa minha vida"
                         });
                 });
@@ -590,7 +590,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         new
                         {
                             Id = 1,
-                            DataNascimento = new DateTime(2000, 10, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            DataNascimento = new DateTime(2001, 1, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Documento = "43553936827",
                             Nome = "Admin"
                         });
@@ -625,136 +625,10 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "5cc9a6da-1136-4e8f-8de7-1deb1e6ebe26",
+                            ConcurrencyStamp = "b0615f0d-aa19-4a8d-916e-1f17d9f29547",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
-                });
-
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Saude.ConsultaAtendimento", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("ID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("DataHoraFinal")
-                        .HasColumnName("DATAHORAFINAL")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataHoraInicial")
-                        .HasColumnName("DATAHORAINICIAL")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("IdHospital")
-                        .HasColumnName("IDHOSPITAL")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdMedico")
-                        .HasColumnName("IDMEDICO")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdPessoa")
-                        .HasColumnName("IDPESSOA")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id")
-                        .HasName("PK_CONSULTAATENDIMENTO");
-
-                    b.HasIndex("IdHospital");
-
-                    b.HasIndex("IdMedico");
-
-                    b.HasIndex("IdPessoa");
-
-                    b.ToTable("CONSULTAATENDIMENTO");
-                });
-
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Saude.ConsultaAtendimentoSaida", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("ID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("IdConsultaAtendimento")
-                        .HasColumnName("IDCONSULTAATENDIMENTO")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Observacao")
-                        .HasColumnName("OBSERVACAO")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id")
-                        .HasName("PK_CONSULTAATENDIMENTOSAIDA");
-
-                    b.HasIndex("IdConsultaAtendimento");
-
-                    b.ToTable("CONSULTAATENDIMENTOSAIDA");
-                });
-
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Saude.Hospital", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("ID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("IdCidade")
-                        .HasColumnName("IDCIDADE")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NomeHospital")
-                        .HasColumnName("NOMEHOSPITAL")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id")
-                        .HasName("PK_HOSPITAL");
-
-                    b.HasIndex("IdCidade");
-
-                    b.ToTable("HOSPITAL");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            IdCidade = 1,
-                            NomeHospital = "Hospital Saúde SP"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            IdCidade = 1,
-                            NomeHospital = "Hospital São José"
-                        });
-                });
-
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Saude.Medico", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("ID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Crm")
-                        .HasColumnName("CRM")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("IdFuncionario")
-                        .HasColumnName("IDFUNCIONARIO")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id")
-                        .HasName("PK_MEDICO");
-
-                    b.HasIndex("IdFuncionario");
-
-                    b.ToTable("MEDICO");
                 });
 
             modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Suporte.SuporteSolicitacao", b =>
@@ -919,7 +793,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                             AccessFailedCount = 0,
                             Ativo = true,
                             ConcurrencyStamp = "c8554266-b401-4519-9aeb-a9283053fc58",
-                            DataCadastro = new DateTime(2020, 10, 22, 0, 1, 13, 809, DateTimeKind.Local).AddTicks(3165),
+                            DataCadastro = new DateTime(2021, 1, 27, 0, 29, 40, 920, DateTimeKind.Local).AddTicks(903),
                             Email = "myemail@myemail.com",
                             EmailConfirmed = true,
                             IdPessoa = 1,
@@ -1165,60 +1039,6 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .WithMany("ListaPontoRegistro")
                         .HasForeignKey("IdFuncionario")
                         .HasConstraintName("FK_FUNCIONARIOPONTOREGISTROS_FUNCIONARIOS_IDFUNCIONARIO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Saude.ConsultaAtendimento", b =>
-                {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Saude.Hospital", "Hospital")
-                        .WithMany()
-                        .HasForeignKey("IdHospital")
-                        .HasConstraintName("FK_CONSULTAATENDIMENTO_HOSPITAL_IDHOSPITAL")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Saude.Medico", "Medico")
-                        .WithMany()
-                        .HasForeignKey("IdMedico")
-                        .HasConstraintName("FK_CONSULTAATENDIMENTO_MEDICO_IDMEDICO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Pessoa", "Pessoa")
-                        .WithMany()
-                        .HasForeignKey("IdPessoa")
-                        .HasConstraintName("FK_CONSULTAATENDIMENTO_PESSOA_IDPESSOA")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Saude.ConsultaAtendimentoSaida", b =>
-                {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Saude.ConsultaAtendimento", "ConsultaAtendimento")
-                        .WithMany("ListaConsultaAtendimentoSaida")
-                        .HasForeignKey("IdConsultaAtendimento")
-                        .HasConstraintName("FK_CONSULTAATENDIMENTOSAIDA_CONSULTAATENDIMENTO_IDCONSULTAATENDIMENTO")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Saude.Hospital", b =>
-                {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Cidade", "Cidade")
-                        .WithMany()
-                        .HasForeignKey("IdCidade")
-                        .HasConstraintName("FK_HOSPITAL_CIDADE_IDCIDADE")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Saude.Medico", b =>
-                {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Financeiro.Funcionario", "Funcionario")
-                        .WithMany()
-                        .HasForeignKey("IdFuncionario")
-                        .HasConstraintName("FK_MEDICO_FUNCIONARIOS_IDFUNCIONARIO")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
