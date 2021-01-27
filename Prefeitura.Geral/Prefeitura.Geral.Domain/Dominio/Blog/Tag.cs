@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Prefeitura.Negocio.Dominio.Blog
+namespace Prefeitura.Geral.Negocio.Dominio.Blog
 {
     public class Tag : Entidade
     {

@@ -1,9 +1,9 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Prefeitura.Negocio;
+using Prefeitura.Geral.Negocio;
 
-namespace Prefeitura.Persistencia
+namespace Prefeitura.Geral.Persistencia
 {
     public class ContextoPrefeituraMigrations : ContextoPrefeitura
     {

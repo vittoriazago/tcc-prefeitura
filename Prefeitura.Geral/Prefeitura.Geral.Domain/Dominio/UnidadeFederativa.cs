@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Prefeitura.Negocio.Dominio
+namespace Prefeitura.Geral.Negocio.Dominio
 {
     public class UnidadeFederativa : Entidade
     {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Prefeitura.Negocio.Dominio.Suporte
+namespace Prefeitura.Geral.Negocio.Dominio.Suporte
 {
     public class SuporteSolicitacao : Entidade
     {

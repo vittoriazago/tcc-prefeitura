@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Prefeitura.Negocio.Dominio.Financeiro;
+using Prefeitura.Geral.Negocio.Dominio.Financeiro;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Prefeitura.Negocio.Servicos
+namespace Prefeitura.Geral.Negocio.Servicos
 {
     public class ServicosFuncionarios
     {

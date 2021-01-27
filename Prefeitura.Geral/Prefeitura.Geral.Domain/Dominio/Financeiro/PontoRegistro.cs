@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
-namespace Prefeitura.Negocio.Dominio.Financeiro
+namespace Prefeitura.Geral.Negocio.Dominio.Financeiro
 {
     public class PontoRegistro : Entidade
     {

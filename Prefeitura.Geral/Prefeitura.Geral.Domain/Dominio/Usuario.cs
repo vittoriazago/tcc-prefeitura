@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Prefeitura.Negocio.Dominio
+namespace Prefeitura.Geral.Negocio.Dominio
 {
     public class Usuario : IdentityUser<int>
     {

@@ -1,12 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Prefeitura.Negocio;
-using Prefeitura.Negocio.Dominio.Agendamentos;
+using Prefeitura.Geral.Negocio;
+using Prefeitura.Geral.Negocio.Dominio.Agendamentos;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
-namespace Prefeitura.Testes
+namespace Prefeitura.Geral.Testes
 {
     /// <summary>
     /// Mock do contexto

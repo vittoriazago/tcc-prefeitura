@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Prefeitura.Negocio.Dominio.Blog
+namespace Prefeitura.Geral.Negocio.Dominio.Blog
 {
     public class NoticiaCidade : Entidade
     {

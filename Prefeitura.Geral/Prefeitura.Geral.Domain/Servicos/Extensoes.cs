@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Prefeitura.Negocio
+namespace Prefeitura.Geral.Negocio
 {
     public static class Extensoes
     {

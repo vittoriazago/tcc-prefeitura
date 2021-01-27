@@ -1,14 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using AutoMapper;
-using Prefeitura.Models;
-using Prefeitura.Negocio.Dominio.Financeiro;
-using Prefeitura.Negocio.Dominio.Agendamentos;
-using Prefeitura.Negocio.Dominio.Blog;
-using Prefeitura.Negocio.Dominio.Enums;
+﻿using AutoMapper;
+using Prefeitura.Geral.API.Models;
+using Prefeitura.Geral.Negocio.Dominio.Agendamentos;
+using Prefeitura.Geral.Negocio.Dominio.Blog;
+using Prefeitura.Geral.Negocio.Dominio.Financeiro;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Prefeitura.Configuration
+namespace Prefeitura.Geral.API.Configuration
 {
     public class AutoMapperConfig : Profile
     {

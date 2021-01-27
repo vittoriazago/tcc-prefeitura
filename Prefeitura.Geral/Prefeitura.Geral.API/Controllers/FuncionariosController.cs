@@ -1,17 +1,17 @@
-﻿using System;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Prefeitura.Geral.API.Models;
+using Prefeitura.Geral.Negocio.Dominio.Financeiro;
+using Prefeitura.Geral.Negocio.Servicos;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Prefeitura.Models;
-using Prefeitura.Negocio.Dominio.Financeiro;
-using Prefeitura.Negocio.Servicos;
 
-namespace Prefeitura.Controllers
+namespace Prefeitura.Geral.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -85,7 +85,7 @@ namespace Prefeitura.Controllers
         /// <returns></returns>
         [HttpPost("{id}/holerite")]
         public async Task<IActionResult> PutHolerite(
-           [FromRoute] int id, 
+           [FromRoute] int id,
            IFormFile arquivo)
         {
             byte[] bytesArquivo;

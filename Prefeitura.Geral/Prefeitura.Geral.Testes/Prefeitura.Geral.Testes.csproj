@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Prefeitura.Domain\Prefeitura.Negocio.csproj" />
+    <ProjectReference Include="..\Prefeitura.Geral.Domain\Prefeitura.Geral.Negocio.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,11 +1,9 @@
-﻿using Prefeitura.Negocio.Dominio.Enums;
-using System;
+﻿using Prefeitura.Geral.Negocio.Dominio.Enums;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
 
-namespace Prefeitura.Negocio.Dominio.Financeiro
+namespace Prefeitura.Geral.Negocio.Dominio.Financeiro
 {
     public class Funcionario : Entidade
     {
@@ -22,7 +20,7 @@ namespace Prefeitura.Negocio.Dominio.Financeiro
         [ForeignKey("IdPessoa")]
         public virtual Pessoa Pessoa { get; set; }
         [ForeignKey("IdCidade")]
-        public virtual Cidade Cidade  { get; set; }
+        public virtual Cidade Cidade { get; set; }
 
 
         public virtual ICollection<FuncionarioHistorico> ListaHistorico { get; set; }

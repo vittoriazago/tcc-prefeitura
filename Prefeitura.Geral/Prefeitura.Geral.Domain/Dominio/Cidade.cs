@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Prefeitura.Negocio.Dominio
+namespace Prefeitura.Geral.Negocio.Dominio
 {
     public class Cidade : Entidade
     {
@@ -13,7 +10,7 @@ namespace Prefeitura.Negocio.Dominio
 
         public Cidade(int id, string descricao, int idUnidadeFederativa)
         {
-            Id = id; 
+            Id = id;
             Descricao = descricao;
             IdUnidadeFederativa = idUnidadeFederativa;
         }

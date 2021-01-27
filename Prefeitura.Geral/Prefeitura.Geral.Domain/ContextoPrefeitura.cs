@@ -1,12 +1,12 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using Prefeitura.Negocio.Dominio;
-using Prefeitura.Negocio.Dominio.Agendamentos;
-using Prefeitura.Negocio.Dominio.Blog;
-using Prefeitura.Negocio.Dominio.Financeiro;
-using Prefeitura.Negocio.Dominio.Suporte;
+using Prefeitura.Geral.Negocio.Dominio;
+using Prefeitura.Geral.Negocio.Dominio.Agendamentos;
+using Prefeitura.Geral.Negocio.Dominio.Blog;
+using Prefeitura.Geral.Negocio.Dominio.Financeiro;
+using Prefeitura.Geral.Negocio.Dominio.Suporte;
 
-namespace Prefeitura.Negocio
+namespace Prefeitura.Geral.Negocio
 {
     public class ContextoPrefeitura : DbContext
     {
@@ -57,7 +57,7 @@ namespace Prefeitura.Negocio
             {
                 // Replace table names
                 entity.SetTableName(entity.GetTableName().ToUpper());
-                
+
                 // Replace column names            
                 foreach (var property in entity.GetProperties())
                     property.SetColumnName(property.GetColumnName().ToUpper());

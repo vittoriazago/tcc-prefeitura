@@ -1,25 +1,22 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.PlatformAbstractions;
-using Prefeitura.Negocio;
-using Microsoft.EntityFrameworkCore;
-using System.IO;
-using Prefeitura.Negocio.Servicos;
-using Microsoft.AspNetCore.Mvc;
-using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using AutoMapper;
-using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
+using Prefeitura.Geral.Negocio;
+using Prefeitura.Geral.Negocio.Servicos;
 using System;
+using System.IO;
+using System.Text.Json.Serialization;
 
-namespace Prefeitura
+namespace Prefeitura.Geral.API
 {
     public class Startup
     {
@@ -115,7 +112,8 @@ namespace Prefeitura
 
             // Ativando middlewares para uso do Swagger
             app.UseSwagger();
-            app.UseSwaggerUI(c => {
+            app.UseSwaggerUI(c =>
+            {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Prefeitura V1");
             });
 

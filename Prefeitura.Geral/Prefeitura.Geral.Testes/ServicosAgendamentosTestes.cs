@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Prefeitura.Negocio;
-using Prefeitura.Negocio.Servicos;
+using Prefeitura.Geral.Negocio;
+using Prefeitura.Geral.Negocio.Servicos;
 
-namespace Prefeitura.Testes
+namespace Prefeitura.Geral.Testes
 {
     [TestClass]
     public class ServicosAgendamentosTestes

@@ -1,11 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Prefeitura.Negocio;
-using Prefeitura.Negocio.Dominio.Agendamentos;
-using Prefeitura.Negocio.Servicos;
+using Prefeitura.Geral.Negocio;
+using Prefeitura.Geral.Negocio.Dominio.Agendamentos;
+using Prefeitura.Geral.Negocio.Servicos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Prefeitura.Testes
+namespace Prefeitura.Geral.Testes
 {
     [TestClass]
     public class ServicosAgendamentosSolicitacoesTestes

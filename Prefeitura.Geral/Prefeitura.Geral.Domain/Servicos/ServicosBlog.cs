@@ -1,13 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Prefeitura.Negocio.Dominio.Blog;
-using Prefeitura.Negocio.Dominio.Enums;
+using Prefeitura.Geral.Negocio.Dominio.Blog;
+using Prefeitura.Geral.Negocio.Dominio.Enums;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Prefeitura.Negocio.Servicos
+namespace Prefeitura.Geral.Negocio.Servicos
 {
     public class ServicosBlog
     {
@@ -77,14 +75,16 @@ namespace Prefeitura.Negocio.Servicos
 
             });
 
-            noticia.ListaAutor.ToList().ForEach(async n => {
+            noticia.ListaAutor.ToList().ForEach(async n =>
+            {
                 await _contexto.AddAsync(new NoticiaAutor
                 {
                     IdAutor = n.IdAutor,
                     IdNoticia = noticia.Id
                 });
             });
-            noticia.ListaCidade.ToList().ForEach(async n => {
+            noticia.ListaCidade.ToList().ForEach(async n =>
+            {
                 await _contexto.AddAsync(new NoticiaCidade
                 {
                     IdCidade = n.IdCidade,

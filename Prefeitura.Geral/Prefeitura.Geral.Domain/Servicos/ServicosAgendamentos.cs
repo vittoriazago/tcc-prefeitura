@@ -1,9 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Prefeitura.Negocio.Dominio.Agendamentos;
+﻿using Prefeitura.Geral.Negocio.Dominio.Agendamentos;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Prefeitura.Negocio.Servicos
+namespace Prefeitura.Geral.Negocio.Servicos
 {
     public class ServicosAgendamentos
     {

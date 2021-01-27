@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Prefeitura.Negocio.Dominio.Relatorios
+﻿namespace Prefeitura.Geral.Negocio.Dominio.Relatorios
 {
     public class RelatorioArquivo : Entidade
     {

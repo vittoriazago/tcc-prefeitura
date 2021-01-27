@@ -1,13 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Prefeitura.Negocio.Dominio.Agendamentos;
-using Prefeitura.Negocio.Dominio.Blog;
+﻿using Prefeitura.Geral.Negocio.Dominio.Agendamentos;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Prefeitura.Negocio.Servicos
+namespace Prefeitura.Geral.Negocio.Servicos
 {
     public class ServicosAgendamentosSolicitacoes
     {
@@ -24,7 +20,7 @@ namespace Prefeitura.Negocio.Servicos
         /// <param name="numeroPagina">Número da página</param>
         /// <param name="tamanhoPagina">Tamanho da página</param>
         /// <returns></returns>
-        public async Task<(int quantidadeTotal, IQueryable<AgendamentoSolicitacao> solicitacoes)> 
+        public async Task<(int quantidadeTotal, IQueryable<AgendamentoSolicitacao> solicitacoes)>
             Buscar(
             int numeroPagina = 1,
             int? tamanhoPagina = null)

@@ -1,10 +1,6 @@
-﻿using Prefeitura.Negocio.Dominio.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Prefeitura.Geral.Negocio.Dominio.Enums;
 
-namespace Prefeitura.Models
+namespace Prefeitura.Geral.API.Models
 {
     public class FuncionarioResponseDto
     {

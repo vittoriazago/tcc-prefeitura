@@ -1,7 +1,7 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
-namespace Prefeitura.Persistencia.Migrations
+namespace Prefeitura.Geral.Persistencia.Migrations
 {
     public partial class data : Migration
     {

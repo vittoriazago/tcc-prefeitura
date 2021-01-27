@@ -1,14 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Prefeitura.Negocio.Dominio;
-using Prefeitura.Negocio.Dominio.Agendamentos;
+﻿using Microsoft.EntityFrameworkCore;
+using Prefeitura.Geral.Negocio.Dominio;
+using Prefeitura.Geral.Negocio.Dominio.Agendamentos;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Prefeitura.Negocio
+namespace Prefeitura.Geral.Negocio
 {
     public static class ContextoPrefeituraSeed
     {

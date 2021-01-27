@@ -1,11 +1,10 @@
-﻿using Prefeitura.Negocio.Dominio.Enums;
+﻿using Prefeitura.Geral.Negocio.Dominio.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
 
-namespace Prefeitura.Negocio.Dominio.Agendamentos
+namespace Prefeitura.Geral.Negocio.Dominio.Agendamentos
 {
     public class AgendamentoSolicitacao : Entidade
     {
@@ -23,7 +22,7 @@ namespace Prefeitura.Negocio.Dominio.Agendamentos
         public virtual Agendamento Agendamento { get; set; }
 
         [ForeignKey("IdCidade")]
-        public virtual Cidade Cidade  { get; set; }
+        public virtual Cidade Cidade { get; set; }
 
         [ForeignKey("IdPessoa")]
         public virtual Pessoa Pessoa { get; set; }

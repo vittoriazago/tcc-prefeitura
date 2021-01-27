@@ -1,9 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Prefeitura.Persistencia
+namespace Prefeitura.Geral.Persistencia
 {
     class Program
     {
