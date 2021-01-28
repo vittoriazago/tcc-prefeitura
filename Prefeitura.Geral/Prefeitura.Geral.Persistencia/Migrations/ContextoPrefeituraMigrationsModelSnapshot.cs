@@ -19,7 +19,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Agendamentos.Agendamento", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Agendamentos.Agendamento", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +61,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Agendamentos.AgendamentoHistorico", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Agendamentos.AgendamentoHistorico", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -99,7 +99,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("AGENDAMENTOHISTORICOS");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Agendamentos.AgendamentoSolicitacao", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Agendamentos.AgendamentoSolicitacao", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -147,7 +147,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("AGENDAMENTOSOLICITACAO");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Agendamentos.AgendamentoSolicitacaoHistorico", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Agendamentos.AgendamentoSolicitacaoHistorico", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -185,7 +185,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("AGENDAMENTOSOLICITACAOHISTORICOS");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.Comentario", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.Comentario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -217,7 +217,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("COMENTARIOS");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.Noticia", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.Noticia", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -243,7 +243,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("NOTICIAS");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.NoticiaAutor", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.NoticiaAutor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -269,7 +269,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("NOTICIAAUTORES");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.NoticiaCidade", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.NoticiaCidade", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -295,7 +295,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("NOTICIACIDADES");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.NoticiaHistorico", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.NoticiaHistorico", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -333,7 +333,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("NOTICIAHISTORICO");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.NoticiaTag", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.NoticiaTag", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -359,7 +359,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("NOTICIATAG");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.Tag", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.Tag", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -377,7 +377,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("TAGS");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.Visualizacao", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.Visualizacao", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -401,7 +401,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("VISUALIZACAO");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Cidade", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Cidade", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -439,7 +439,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Financeiro.Funcionario", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Financeiro.Funcionario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -469,7 +469,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("FUNCIONARIOS");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Financeiro.FuncionarioHistorico", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Financeiro.FuncionarioHistorico", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -507,7 +507,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("FUNCIONARIOHISTORICOS");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Financeiro.Holerite", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Financeiro.Holerite", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -535,7 +535,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("FUNCIONARIOHOLERITES");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Financeiro.PontoRegistro", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Financeiro.PontoRegistro", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -559,7 +559,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("FUNCIONARIOPONTOREGISTROS");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Pessoa", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Pessoa", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -594,7 +594,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Role", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -629,7 +629,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Suporte.SuporteSolicitacao", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Suporte.SuporteSolicitacao", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -671,7 +671,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.ToTable("SUPORTESOLICITACOES");
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.UnidadeFederativa", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.UnidadeFederativa", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -701,7 +701,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Usuario", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Usuario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -806,7 +806,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.UsuarioRole", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.UsuarioRole", b =>
                 {
                     b.Property<int>("UserId")
                         .HasColumnName("USERID")
@@ -831,16 +831,16 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Agendamentos.AgendamentoHistorico", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Agendamentos.AgendamentoHistorico", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Agendamentos.Agendamento", "Agendamento")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Agendamentos.Agendamento", "Agendamento")
                         .WithMany("ListaHistorico")
                         .HasForeignKey("IdAgendamento")
                         .HasConstraintName("FK_AGENDAMENTOHISTORICOS_AGENDAMENTOS_IDAGENDAMENTO")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Usuario", "Usuario")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
                         .HasConstraintName("FK_AGENDAMENTOHISTORICOS_USUARIO_IDUSUARIO")
@@ -848,23 +848,23 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Agendamentos.AgendamentoSolicitacao", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Agendamentos.AgendamentoSolicitacao", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Agendamentos.Agendamento", "Agendamento")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Agendamentos.Agendamento", "Agendamento")
                         .WithMany()
                         .HasForeignKey("IdAgendamento")
                         .HasConstraintName("FK_AGENDAMENTOSOLICITACAO_AGENDAMENTOS_IDAGENDAMENTO")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Cidade", "Cidade")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Cidade", "Cidade")
                         .WithMany()
                         .HasForeignKey("IdCidade")
                         .HasConstraintName("FK_AGENDAMENTOSOLICITACAO_CIDADE_IDCIDADE")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Pessoa", "Pessoa")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Pessoa", "Pessoa")
                         .WithMany()
                         .HasForeignKey("IdPessoa")
                         .HasConstraintName("FK_AGENDAMENTOSOLICITACAO_PESSOA_IDPESSOA")
@@ -872,16 +872,16 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Agendamentos.AgendamentoSolicitacaoHistorico", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Agendamentos.AgendamentoSolicitacaoHistorico", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Agendamentos.AgendamentoSolicitacao", "Solicitacao")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Agendamentos.AgendamentoSolicitacao", "Solicitacao")
                         .WithMany("ListaHistorico")
                         .HasForeignKey("IdAgendamentoSolicitacao")
                         .HasConstraintName("FK_AGENDAMENTOSOLICITACAOHISTORICOS_AGENDAMENTOSOLICITACAO_IDAGENDAMENTOSOLICITACAO")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Usuario", "Usuario")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
                         .HasConstraintName("FK_AGENDAMENTOSOLICITACAOHISTORICOS_USUARIO_IDUSUARIO")
@@ -889,9 +889,9 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.Comentario", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.Comentario", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Blog.Noticia", "Noticia")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Blog.Noticia", "Noticia")
                         .WithMany("ListaComentario")
                         .HasForeignKey("IdNoticia")
                         .HasConstraintName("FK_COMENTARIOS_NOTICIAS_IDNOTICIA")
@@ -899,16 +899,16 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.NoticiaAutor", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.NoticiaAutor", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Pessoa", "Autor")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Pessoa", "Autor")
                         .WithMany()
                         .HasForeignKey("IdAutor")
                         .HasConstraintName("FK_NOTICIAAUTORES_PESSOA_IDAUTOR")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Blog.Noticia", "Noticia")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Blog.Noticia", "Noticia")
                         .WithMany("ListaAutor")
                         .HasForeignKey("IdNoticia")
                         .HasConstraintName("FK_NOTICIAAUTORES_NOTICIAS_IDNOTICIA")
@@ -916,16 +916,16 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.NoticiaCidade", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.NoticiaCidade", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Cidade", "Cidade")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Cidade", "Cidade")
                         .WithMany()
                         .HasForeignKey("IdCidade")
                         .HasConstraintName("FK_NOTICIACIDADES_CIDADE_IDCIDADE")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Blog.Noticia", "Noticia")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Blog.Noticia", "Noticia")
                         .WithMany("ListaCidade")
                         .HasForeignKey("IdNoticia")
                         .HasConstraintName("FK_NOTICIACIDADES_NOTICIAS_IDNOTICIA")
@@ -933,16 +933,16 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.NoticiaHistorico", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.NoticiaHistorico", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Blog.Noticia", "Noticia")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Blog.Noticia", "Noticia")
                         .WithMany("ListaHistorico")
                         .HasForeignKey("IdNoticia")
                         .HasConstraintName("FK_NOTICIAHISTORICO_NOTICIAS_IDNOTICIA")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Usuario", "Usuario")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
                         .HasConstraintName("FK_NOTICIAHISTORICO_USUARIO_IDUSUARIO")
@@ -950,16 +950,16 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.NoticiaTag", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.NoticiaTag", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Blog.Noticia", "Noticia")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Blog.Noticia", "Noticia")
                         .WithMany("ListaNoticiaTag")
                         .HasForeignKey("IdNoticia")
                         .HasConstraintName("FK_NOTICIATAG_NOTICIAS_IDNOTICIA")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Blog.Tag", "Tag")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Blog.Tag", "Tag")
                         .WithMany("ListaNoticiaTag")
                         .HasForeignKey("IdTag")
                         .HasConstraintName("FK_NOTICIATAG_TAGS_IDTAG")
@@ -967,9 +967,9 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Blog.Visualizacao", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Blog.Visualizacao", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Blog.Noticia", "Noticia")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Blog.Noticia", "Noticia")
                         .WithMany("ListaVisualizacao")
                         .HasForeignKey("IdNoticia")
                         .HasConstraintName("FK_VISUALIZACAO_NOTICIAS_IDNOTICIA")
@@ -977,9 +977,9 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Cidade", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Cidade", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.UnidadeFederativa", "UnidadeFederativa")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.UnidadeFederativa", "UnidadeFederativa")
                         .WithMany("ListaCidade")
                         .HasForeignKey("IdUnidadeFederativa")
                         .HasConstraintName("FK_CIDADE_UNIDADEFEDERATIVA_IDUNIDADEFEDERATIVA")
@@ -987,16 +987,16 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Financeiro.Funcionario", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Financeiro.Funcionario", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Cidade", "Cidade")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Cidade", "Cidade")
                         .WithMany()
                         .HasForeignKey("IdCidade")
                         .HasConstraintName("FK_FUNCIONARIOS_CIDADE_IDCIDADE")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Pessoa", "Pessoa")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Pessoa", "Pessoa")
                         .WithMany()
                         .HasForeignKey("IdPessoa")
                         .HasConstraintName("FK_FUNCIONARIOS_PESSOA_IDPESSOA")
@@ -1004,16 +1004,16 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Financeiro.FuncionarioHistorico", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Financeiro.FuncionarioHistorico", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Financeiro.Funcionario", "Funcionario")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Financeiro.Funcionario", "Funcionario")
                         .WithMany("ListaHistorico")
                         .HasForeignKey("IdFuncionario")
                         .HasConstraintName("FK_FUNCIONARIOHISTORICOS_FUNCIONARIOS_IDFUNCIONARIO")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Usuario", "Usuario")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
                         .HasConstraintName("FK_FUNCIONARIOHISTORICOS_USUARIO_IDUSUARIO")
@@ -1021,9 +1021,9 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Financeiro.Holerite", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Financeiro.Holerite", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Financeiro.Funcionario", "Funcionario")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Financeiro.Funcionario", "Funcionario")
                         .WithMany("ListaHolerite")
                         .HasForeignKey("IdFuncionario")
                         .HasConstraintName("FK_FUNCIONARIOHOLERITES_FUNCIONARIOS_IDFUNCIONARIO")
@@ -1031,9 +1031,9 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Financeiro.PontoRegistro", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Financeiro.PontoRegistro", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Financeiro.Funcionario", "Funcionario")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Financeiro.Funcionario", "Funcionario")
                         .WithMany("ListaPontoRegistro")
                         .HasForeignKey("IdFuncionario")
                         .HasConstraintName("FK_FUNCIONARIOPONTOREGISTROS_FUNCIONARIOS_IDFUNCIONARIO")
@@ -1041,16 +1041,16 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Suporte.SuporteSolicitacao", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Suporte.SuporteSolicitacao", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Cidade", "Cidade")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Cidade", "Cidade")
                         .WithMany()
                         .HasForeignKey("IdCidade")
                         .HasConstraintName("FK_SUPORTESOLICITACOES_CIDADE_IDCIDADE")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Pessoa", "Pessoa")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Pessoa", "Pessoa")
                         .WithMany()
                         .HasForeignKey("IdPessoa")
                         .HasConstraintName("FK_SUPORTESOLICITACOES_PESSOA_IDPESSOA")
@@ -1058,9 +1058,9 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.Usuario", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Usuario", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Pessoa", "Pessoa")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Pessoa", "Pessoa")
                         .WithMany()
                         .HasForeignKey("IdPessoa")
                         .HasConstraintName("FK_USUARIO_PESSOA_IDPESSOA")
@@ -1068,16 +1068,16 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prefeitura.Geral.Negocio.Dominio.UsuarioRole", b =>
+            modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.UsuarioRole", b =>
                 {
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Role", "Role")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Role", "Role")
                         .WithMany("UsuarioRoles")
                         .HasForeignKey("RoleId")
                         .HasConstraintName("FK_USUARIOROLE_ROLE_ROLEID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Prefeitura.Geral.Negocio.Dominio.Usuario", "Usuario")
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", "Usuario")
                         .WithMany("UsuarioRoles")
                         .HasForeignKey("UserId")
                         .HasConstraintName("FK_USUARIOROLE_USUARIO_USERID")

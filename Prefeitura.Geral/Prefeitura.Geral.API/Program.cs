@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Prefeitura.Geral.API
+namespace Prefeitura.Geral.Api
 {
     public class Program
     {

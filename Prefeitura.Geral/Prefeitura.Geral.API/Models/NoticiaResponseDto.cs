@@ -1,8 +1,8 @@
-﻿using Prefeitura.Geral.Negocio.Dominio.Enums;
+﻿using Prefeitura.Geral.Dominio.Dominio.Enums;
 using System;
 using System.Collections.Generic;
 
-namespace Prefeitura.Geral.API.Models
+namespace Prefeitura.Geral.Api.Models
 {
     public class NoticiaResponseDto
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Prefeitura.Geral.Negocio;
-using Prefeitura.Geral.Negocio.Dominio.Agendamentos;
+using Prefeitura.Geral.Dominio;
+using Prefeitura.Geral.Dominio.Dominio.Agendamentos;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

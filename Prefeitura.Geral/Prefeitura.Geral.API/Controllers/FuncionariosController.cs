@@ -2,16 +2,16 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Prefeitura.Geral.API.Models;
-using Prefeitura.Geral.Negocio.Dominio.Financeiro;
-using Prefeitura.Geral.Negocio.Servicos;
+using Prefeitura.Geral.Api.Models;
+using Prefeitura.Geral.Dominio.Dominio.Financeiro;
+using Prefeitura.Geral.Dominio.Servicos;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Prefeitura.Geral.API.Controllers
+namespace Prefeitura.Geral.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using Prefeitura.Geral.API.Models;
-using Prefeitura.Geral.Negocio.Dominio.Agendamentos;
-using Prefeitura.Geral.Negocio.Dominio.Blog;
-using Prefeitura.Geral.Negocio.Dominio.Financeiro;
+using Prefeitura.Geral.Api.Models;
+using Prefeitura.Geral.Dominio.Dominio.Agendamentos;
+using Prefeitura.Geral.Dominio.Dominio.Blog;
+using Prefeitura.Geral.Dominio.Dominio.Financeiro;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Prefeitura.Geral.API.Configuration
+namespace Prefeitura.Geral.Api.Configuration
 {
     public class AutoMapperConfig : Profile
     {

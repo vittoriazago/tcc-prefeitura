@@ -1,7 +1,7 @@
-﻿using Prefeitura.Geral.Negocio.Dominio.Enums;
+﻿using Prefeitura.Geral.Dominio.Dominio.Enums;
 using System;
 
-namespace Prefeitura.Geral.API.Models
+namespace Prefeitura.Geral.Api.Models
 {
     public class AgendamentoSolicitacaoRequestDto
     {

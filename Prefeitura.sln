@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prefeitura.Geral.API", "Prefeitura.Geral\Prefeitura.Geral.API\Prefeitura.Geral.API.csproj", "{ECD868EA-749B-4140-9CB8-746098EBB8B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prefeitura.Geral.Api", "Prefeitura.Geral\Prefeitura.Geral.Api\Prefeitura.Geral.Api.csproj", "{ECD868EA-749B-4140-9CB8-746098EBB8B6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prefeitura.Geral.Negocio", "Prefeitura.Geral\Prefeitura.Geral.Domain\Prefeitura.Geral.Negocio.csproj", "{AAAA2136-BA70-43BD-B096-36BE0F1C5B77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prefeitura.Geral.Dominio", "Prefeitura.Geral\Prefeitura.Geral.Dominio\Prefeitura.Geral.Dominio.csproj", "{AAAA2136-BA70-43BD-B096-36BE0F1C5B77}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prefeitura.Geral.Persistencia", "Prefeitura.Geral\Prefeitura.Geral.Persistencia\Prefeitura.Geral.Persistencia.csproj", "{590A6DD5-9283-4BCF-8D42-64723DC63179}"
 EndProject

@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Prefeitura.Geral.Negocio;
-using Prefeitura.Geral.Negocio.Dominio.Agendamentos;
-using Prefeitura.Geral.Negocio.Servicos;
+using Prefeitura.Geral.Dominio;
+using Prefeitura.Geral.Dominio.Dominio.Agendamentos;
+using Prefeitura.Geral.Dominio.Servicos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -24,7 +24,7 @@ namespace Prefeitura.Geral.Testes
         public async Task TestMethod1()
         {
             await _servicosAgendamentos.AdicionarAgendamentoSolicitacao(
-                new Negocio.Dominio.Agendamentos.AgendamentoSolicitacao()
+                new Dominio.Dominio.Agendamentos.AgendamentoSolicitacao()
                 {
                     ListaHistorico = new List<AgendamentoSolicitacaoHistorico>()
                     {

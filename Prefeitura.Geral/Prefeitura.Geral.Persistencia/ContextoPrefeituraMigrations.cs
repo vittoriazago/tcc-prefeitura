@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Prefeitura.Geral.Negocio;
+using Prefeitura.Geral.Dominio;
 using System;
 
 namespace Prefeitura.Geral.Persistencia

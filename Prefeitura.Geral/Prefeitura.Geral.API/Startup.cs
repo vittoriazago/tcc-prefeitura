@@ -10,13 +10,13 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.PlatformAbstractions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Prefeitura.Geral.Negocio;
-using Prefeitura.Geral.Negocio.Servicos;
+using Prefeitura.Geral.Dominio;
+using Prefeitura.Geral.Dominio.Servicos;
 using System;
 using System.IO;
 using System.Text.Json.Serialization;
 
-namespace Prefeitura.Geral.API
+namespace Prefeitura.Geral.Api
 {
     public class Startup
     {
@@ -70,11 +70,11 @@ namespace Prefeitura.Geral.API
 
             services.AddSwaggerGen(c =>
             {
-                // Configura a documentação do swagger
+                // Configura a documentaï¿½ï¿½o do swagger
                 c.SwaggerDoc("v1",
                     new Microsoft.OpenApi.Models.OpenApiInfo
                     {
-                        Title = "Prefeitura API",
+                        Title = "Prefeitura Api",
                         Version = "v1",
                         Description = "Service representing ASPNET CORE",
                         Contact = new Microsoft.OpenApi.Models.OpenApiContact
@@ -91,7 +91,7 @@ namespace Prefeitura.Geral.API
                 var caminhoXmlDoc =
                     Path.Combine(caminhoAplicacao, $"{nomeAplicacao}.xml");
 
-                // adiciona a autorização e os comentários pelo xml
+                // adiciona a autorizaï¿½ï¿½o e os comentï¿½rios pelo xml
                 c.IncludeXmlComments(caminhoXmlDoc);
             });
         }

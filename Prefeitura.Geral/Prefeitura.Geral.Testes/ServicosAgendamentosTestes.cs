@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Prefeitura.Geral.Negocio;
-using Prefeitura.Geral.Negocio.Servicos;
+using Prefeitura.Geral.Dominio;
+using Prefeitura.Geral.Dominio.Servicos;
 
 namespace Prefeitura.Geral.Testes
 {

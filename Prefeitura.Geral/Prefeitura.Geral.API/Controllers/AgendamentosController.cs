@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Prefeitura.Geral.API.Models;
-using Prefeitura.Geral.Negocio.Dominio.Agendamentos;
-using Prefeitura.Geral.Negocio.Servicos;
+using Prefeitura.Geral.Api.Models;
+using Prefeitura.Geral.Dominio.Dominio.Agendamentos;
+using Prefeitura.Geral.Dominio.Servicos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Prefeitura.Geral.API.Controllers
+namespace Prefeitura.Geral.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
