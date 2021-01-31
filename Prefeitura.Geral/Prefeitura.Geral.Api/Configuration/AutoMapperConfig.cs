@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Prefeitura.Geral.Api.Models;
+using Prefeitura.Geral.Api.Models.Usuarios;
+using Prefeitura.Geral.Dominio.Dominio;
 using Prefeitura.Geral.Dominio.Dominio.Agendamentos;
 using Prefeitura.Geral.Dominio.Dominio.Blog;
 using Prefeitura.Geral.Dominio.Dominio.Financeiro;
@@ -12,6 +14,12 @@ namespace Prefeitura.Geral.Api.Configuration
     {
         public AutoMapperConfig()
         {
+            CreateMap<UsuarioNovoDto, Usuario>()
+              .ForMember(f => f.UserName, r => r.MapFrom(f => f.Email))
+              .ForMember(f => f.Email, r => r.MapFrom(f => f.Email))
+              .ForMember(f => f.NormalizedEmail, r => r.MapFrom(f => f.Email))
+              .ForMember(f => f.NormalizedUserName, r => r.MapFrom(f => f.Email));
+
             CreateMap<FuncionarioRequestDto, Funcionario>()
                .ForMember(f => f.ListaHistorico, r => r.MapFrom(f => new List<FuncionarioHistorico>
                {

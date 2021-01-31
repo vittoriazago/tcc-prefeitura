@@ -31,15 +31,15 @@ namespace Prefeitura.Geral.Dominio
             modelBuilder.Entity<Usuario>().HasData(new Usuario
             {
                 Id = ADMIN_ID,
-                UserName = "myemail@myemail.com",
+                UserName = "admin@sgm.com.br",
                 NormalizedUserName = "MYEMAIL@MYEMAIL.COM",
-                Email = "myemail@myemail.com",
+                Email = "admin@sgm.com.br",
                 NormalizedEmail = "MYEMAIL@MYEMAIL.COM",
                 EmailConfirmed = true,
                 IdPessoa = ADMIN_ID,
                 DataCadastro = DateTime.Now,
                 Ativo = true,
-                PasswordHash = "AQABBAEABCcQAABAEBhd37krE/TyMklt3SIf2Q3ITj/dunHYr7O5Z9UB0R1+dpDbcrHWuTBr8Uh5WR+JrQ==",
+                PasswordHash = "AQAAAAEAACcQAAAAEPIj4kbgp/t3Eg+g6zb4DPItimuGJVVKKzF7ifBO4by+oekl4DybdP9TERVZpkHk1A==",
                 SecurityStamp = "VVPCRDAS3MJWQD5CSW2GWPRADBXEZINA",
                 ConcurrencyStamp = "c8554266-b401-4519-9aeb-a9283053fc58"
             });

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.PlatformAbstractions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Prefeitura.Geral.Api.Configuration;
 using Prefeitura.Geral.Dominio;
 using Prefeitura.Geral.Dominio.Servicos;
 using System;
@@ -30,15 +31,24 @@ namespace Prefeitura.Geral.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(
+                options => options.AddPolicy("AllowCors",
+                builder =>
+                {
+                    builder
+                        .WithOrigins("*")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                })
+            );
+
             services.AddDbContext<ContextoPrefeitura>(options =>
                               //options.UseSqlServer(
                               //    Configuration.GetConnectionString("DefaultConnection"))
-                              options.UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                              options.UseInMemoryDatabase(databaseName: "TESTE")
                               );
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<ContextoPrefeitura>();
 
+            services.ConfigureAuthentication(Configuration.GetSection("AppSettings:Token").Value);
 
             services.AddMvc()
                     .AddNewtonsoftJson(o =>
@@ -57,16 +67,9 @@ namespace Prefeitura.Geral.Api
             services.AddScoped<ServicosAgendamentos>();
             services.AddScoped<ServicosAgendamentosSolicitacoes>();
             services.AddScoped<ServicosFuncionarios>();
+            services.AddScoped<ServicosPessoas>();
 
             services.AddAutoMapper(typeof(Startup));
-
-            services.AddControllersWithViews();
-            // In production, the Angular files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/dist";
-            });
-
 
             services.AddSwaggerGen(c =>
             {
@@ -120,12 +123,9 @@ namespace Prefeitura.Geral.Api
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //if (!env.IsDevelopment())
-            {
-                app.UseSpaStaticFiles();
-            }
-
             app.UseRouting();
+
+            app.UseCors("AllowCors");
 
             app.UseEndpoints(endpoints =>
             {
@@ -134,18 +134,6 @@ namespace Prefeitura.Geral.Api
                     pattern: "{controller}/{action=Index}/{id?}");
             });
 
-            app.UseSpa(spa =>
-            {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
-
-                spa.Options.SourcePath = "ClientApp";
-
-                if (env.IsDevelopment())
-                {
-                    spa.UseAngularCliServer(npmScript: "start");
-                }
-            });
         }
     }
 }

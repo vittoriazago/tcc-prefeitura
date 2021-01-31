@@ -10,7 +10,7 @@ using Prefeitura.Geral.Persistencia;
 namespace Prefeitura.Geral.Persistencia.Migrations
 {
     [DbContext(typeof(ContextoPrefeituraMigrations))]
-    [Migration("20210127032942_init")]
+    [Migration("20210131225332_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,112 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 .HasAnnotation("ProductVersion", "3.1.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("ID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnName("CLAIMTYPE")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnName("CLAIMVALUE")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnName("ROLEID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id")
+                        .HasName("PK_ASPNETROLECLAIMS");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("ASPNETROLECLAIMS");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("ID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnName("CLAIMTYPE")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnName("CLAIMVALUE")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnName("USERID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id")
+                        .HasName("PK_ASPNETUSERCLAIMS");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ASPNETUSERCLAIMS");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnName("LOGINPROVIDER")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnName("PROVIDERKEY")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnName("PROVIDERDISPLAYNAME")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnName("USERID")
+                        .HasColumnType("int");
+
+                    b.HasKey("LoginProvider", "ProviderKey")
+                        .HasName("PK_ASPNETUSERLOGINS");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ASPNETUSERLOGINS");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnName("USERID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnName("LOGINPROVIDER")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnName("NAME")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnName("VALUE")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name")
+                        .HasName("PK_ASPNETUSERTOKENS");
+
+                    b.ToTable("ASPNETUSERTOKENS");
+                });
 
             modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Agendamentos.Agendamento", b =>
                 {
@@ -50,15 +156,15 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         new
                         {
                             Id = 1,
-                            DataHoraDisponivelFinal = new DateTime(2021, 1, 27, 3, 29, 40, 917, DateTimeKind.Local).AddTicks(8976),
-                            DataHoraDisponivelInicial = new DateTime(2021, 1, 27, 0, 29, 40, 916, DateTimeKind.Local).AddTicks(4616),
+                            DataHoraDisponivelFinal = new DateTime(2021, 1, 31, 22, 53, 31, 448, DateTimeKind.Local).AddTicks(7669),
+                            DataHoraDisponivelInicial = new DateTime(2021, 1, 31, 19, 53, 31, 447, DateTimeKind.Local).AddTicks(1942),
                             Descricao = "Solicitar carteira de trabalho"
                         },
                         new
                         {
                             Id = 2,
-                            DataHoraDisponivelFinal = new DateTime(2021, 1, 27, 3, 29, 40, 918, DateTimeKind.Local).AddTicks(2878),
-                            DataHoraDisponivelInicial = new DateTime(2021, 1, 27, 0, 29, 40, 918, DateTimeKind.Local).AddTicks(2870),
+                            DataHoraDisponivelFinal = new DateTime(2021, 1, 31, 22, 53, 31, 449, DateTimeKind.Local).AddTicks(1851),
+                            DataHoraDisponivelInicial = new DateTime(2021, 1, 31, 19, 53, 31, 449, DateTimeKind.Local).AddTicks(1837),
                             Descricao = "Minha casa minha vida"
                         });
                 });
@@ -582,15 +688,15 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id")
-                        .HasName("PK_PESSOA");
+                        .HasName("PK_PESSOAS");
 
-                    b.ToTable("PESSOA");
+                    b.ToTable("PESSOAS");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            DataNascimento = new DateTime(2001, 1, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            DataNascimento = new DateTime(2001, 1, 31, 0, 0, 0, 0, DateTimeKind.Local),
                             Documento = "43553936827",
                             Nome = "Admin"
                         });
@@ -605,27 +711,35 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
                         .HasColumnName("CONCURRENCYSTAMP")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnName("NAME")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.Property<string>("NormalizedName")
                         .HasColumnName("NORMALIZEDNAME")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.HasKey("Id")
-                        .HasName("PK_ROLE");
+                        .HasName("PK_ASPNETROLES");
 
-                    b.ToTable("ROLE");
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NORMALIZEDNAME] IS NOT NULL");
+
+                    b.ToTable("ASPNETROLES");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "b0615f0d-aa19-4a8d-916e-1f17d9f29547",
+                            ConcurrencyStamp = "0ac6fc09-1661-43c6-a811-08bc8237f418",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -720,6 +834,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
                         .HasColumnName("CONCURRENCYSTAMP")
                         .HasColumnType("nvarchar(max)");
 
@@ -729,7 +844,8 @@ namespace Prefeitura.Geral.Persistencia.Migrations
 
                     b.Property<string>("Email")
                         .HasColumnName("EMAIL")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnName("EMAILCONFIRMED")
@@ -749,11 +865,13 @@ namespace Prefeitura.Geral.Persistencia.Migrations
 
                     b.Property<string>("NormalizedEmail")
                         .HasColumnName("NORMALIZEDEMAIL")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.Property<string>("NormalizedUserName")
                         .HasColumnName("NORMALIZEDUSERNAME")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.Property<string>("PasswordHash")
                         .HasColumnName("PASSWORDHASH")
@@ -777,14 +895,23 @@ namespace Prefeitura.Geral.Persistencia.Migrations
 
                     b.Property<string>("UserName")
                         .HasColumnName("USERNAME")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.HasKey("Id")
-                        .HasName("PK_USUARIO");
+                        .HasName("PK_ASPNETUSERS");
 
                     b.HasIndex("IdPessoa");
 
-                    b.ToTable("USUARIO");
+                    b.HasIndex("NormalizedEmail")
+                        .HasName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NORMALIZEDUSERNAME] IS NOT NULL");
+
+                    b.ToTable("ASPNETUSERS");
 
                     b.HasData(
                         new
@@ -793,18 +920,18 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                             AccessFailedCount = 0,
                             Ativo = true,
                             ConcurrencyStamp = "c8554266-b401-4519-9aeb-a9283053fc58",
-                            DataCadastro = new DateTime(2021, 1, 27, 0, 29, 40, 920, DateTimeKind.Local).AddTicks(903),
-                            Email = "myemail@myemail.com",
+                            DataCadastro = new DateTime(2021, 1, 31, 19, 53, 31, 450, DateTimeKind.Local).AddTicks(8875),
+                            Email = "admin@sgm.com.br",
                             EmailConfirmed = true,
                             IdPessoa = 1,
                             LockoutEnabled = false,
                             NormalizedEmail = "MYEMAIL@MYEMAIL.COM",
                             NormalizedUserName = "MYEMAIL@MYEMAIL.COM",
-                            PasswordHash = "AQABBAEABCcQAABAEBhd37krE/TyMklt3SIf2Q3ITj/dunHYr7O5Z9UB0R1+dpDbcrHWuTBr8Uh5WR+JrQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPIj4kbgp/t3Eg+g6zb4DPItimuGJVVKKzF7ifBO4by+oekl4DybdP9TERVZpkHk1A==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "VVPCRDAS3MJWQD5CSW2GWPRADBXEZINA",
                             TwoFactorEnabled = false,
-                            UserName = "myemail@myemail.com"
+                            UserName = "admin@sgm.com.br"
                         });
                 });
 
@@ -819,11 +946,11 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("UserId", "RoleId")
-                        .HasName("PK_USUARIOROLE");
+                        .HasName("PK_ASPNETUSERROLES");
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("USUARIOROLE");
+                    b.ToTable("ASPNETUSERROLES");
 
                     b.HasData(
                         new
@@ -831,6 +958,46 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                             UserId = 1,
                             RoleId = 1
                         });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .HasConstraintName("FK_ASPNETROLECLAIMS_ASPNETROLES_ROLEID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK_ASPNETUSERCLAIMS_ASPNETUSERS_USERID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK_ASPNETUSERLOGINS_ASPNETUSERS_USERID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK_ASPNETUSERTOKENS_ASPNETUSERS_USERID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Prefeitura.Geral.Dominio.Dominio.Agendamentos.AgendamentoHistorico", b =>
@@ -845,7 +1012,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
-                        .HasConstraintName("FK_AGENDAMENTOHISTORICOS_USUARIO_IDUSUARIO")
+                        .HasConstraintName("FK_AGENDAMENTOHISTORICOS_ASPNETUSERS_IDUSUARIO")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -869,7 +1036,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.HasOne("Prefeitura.Geral.Dominio.Dominio.Pessoa", "Pessoa")
                         .WithMany()
                         .HasForeignKey("IdPessoa")
-                        .HasConstraintName("FK_AGENDAMENTOSOLICITACAO_PESSOA_IDPESSOA")
+                        .HasConstraintName("FK_AGENDAMENTOSOLICITACAO_PESSOAS_IDPESSOA")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -886,7 +1053,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
-                        .HasConstraintName("FK_AGENDAMENTOSOLICITACAOHISTORICOS_USUARIO_IDUSUARIO")
+                        .HasConstraintName("FK_AGENDAMENTOSOLICITACAOHISTORICOS_ASPNETUSERS_IDUSUARIO")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -906,7 +1073,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.HasOne("Prefeitura.Geral.Dominio.Dominio.Pessoa", "Autor")
                         .WithMany()
                         .HasForeignKey("IdAutor")
-                        .HasConstraintName("FK_NOTICIAAUTORES_PESSOA_IDAUTOR")
+                        .HasConstraintName("FK_NOTICIAAUTORES_PESSOAS_IDAUTOR")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -947,7 +1114,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
-                        .HasConstraintName("FK_NOTICIAHISTORICO_USUARIO_IDUSUARIO")
+                        .HasConstraintName("FK_NOTICIAHISTORICO_ASPNETUSERS_IDUSUARIO")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -1001,7 +1168,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.HasOne("Prefeitura.Geral.Dominio.Dominio.Pessoa", "Pessoa")
                         .WithMany()
                         .HasForeignKey("IdPessoa")
-                        .HasConstraintName("FK_FUNCIONARIOS_PESSOA_IDPESSOA")
+                        .HasConstraintName("FK_FUNCIONARIOS_PESSOAS_IDPESSOA")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -1018,7 +1185,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
-                        .HasConstraintName("FK_FUNCIONARIOHISTORICOS_USUARIO_IDUSUARIO")
+                        .HasConstraintName("FK_FUNCIONARIOHISTORICOS_ASPNETUSERS_IDUSUARIO")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -1055,7 +1222,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.HasOne("Prefeitura.Geral.Dominio.Dominio.Pessoa", "Pessoa")
                         .WithMany()
                         .HasForeignKey("IdPessoa")
-                        .HasConstraintName("FK_SUPORTESOLICITACOES_PESSOA_IDPESSOA")
+                        .HasConstraintName("FK_SUPORTESOLICITACOES_PESSOAS_IDPESSOA")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -1065,7 +1232,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.HasOne("Prefeitura.Geral.Dominio.Dominio.Pessoa", "Pessoa")
                         .WithMany()
                         .HasForeignKey("IdPessoa")
-                        .HasConstraintName("FK_USUARIO_PESSOA_IDPESSOA")
+                        .HasConstraintName("FK_ASPNETUSERS_PESSOAS_IDPESSOA")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -1075,14 +1242,14 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     b.HasOne("Prefeitura.Geral.Dominio.Dominio.Role", "Role")
                         .WithMany("UsuarioRoles")
                         .HasForeignKey("RoleId")
-                        .HasConstraintName("FK_USUARIOROLE_ROLE_ROLEID")
+                        .HasConstraintName("FK_ASPNETUSERROLES_ASPNETROLES_ROLEID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Prefeitura.Geral.Dominio.Dominio.Usuario", "Usuario")
                         .WithMany("UsuarioRoles")
                         .HasForeignKey("UserId")
-                        .HasConstraintName("FK_USUARIOROLE_USUARIO_USERID")
+                        .HasConstraintName("FK_ASPNETUSERROLES_ASPNETUSERS_USERID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

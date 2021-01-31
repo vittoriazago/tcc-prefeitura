@@ -23,6 +23,21 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ASPNETROLES",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NAME = table.Column<string>(maxLength: 256, nullable: true),
+                    NORMALIZEDNAME = table.Column<string>(maxLength: 256, nullable: true),
+                    CONCURRENCYSTAMP = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ASPNETROLES", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "NOTICIAS",
                 columns: table => new
                 {
@@ -38,7 +53,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PESSOA",
+                name: "PESSOAS",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
@@ -49,22 +64,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PESSOA", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ROLE",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NAME = table.Column<string>(nullable: true),
-                    NORMALIZEDNAME = table.Column<string>(nullable: true),
-                    CONCURRENCYSTAMP = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ROLE", x => x.ID);
+                    table.PrimaryKey("PK_PESSOAS", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -91,6 +91,27 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UNIDADEFEDERATIVA", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ASPNETROLECLAIMS",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ROLEID = table.Column<int>(nullable: false),
+                    CLAIMTYPE = table.Column<string>(nullable: true),
+                    CLAIMVALUE = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ASPNETROLECLAIMS", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_ASPNETROLECLAIMS_ASPNETROLES_ROLEID",
+                        column: x => x.ROLEID,
+                        principalTable: "ASPNETROLES",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -136,41 +157,15 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "NOTICIAAUTORES",
+                name: "ASPNETUSERS",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IDAUTOR = table.Column<int>(nullable: false),
-                    IDNOTICIA = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_NOTICIAAUTORES", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_NOTICIAAUTORES_PESSOA_IDAUTOR",
-                        column: x => x.IDAUTOR,
-                        principalTable: "PESSOA",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_NOTICIAAUTORES_NOTICIAS_IDNOTICIA",
-                        column: x => x.IDNOTICIA,
-                        principalTable: "NOTICIAS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "USUARIO",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    USERNAME = table.Column<string>(nullable: true),
-                    NORMALIZEDUSERNAME = table.Column<string>(nullable: true),
-                    EMAIL = table.Column<string>(nullable: true),
-                    NORMALIZEDEMAIL = table.Column<string>(nullable: true),
+                    USERNAME = table.Column<string>(maxLength: 256, nullable: true),
+                    NORMALIZEDUSERNAME = table.Column<string>(maxLength: 256, nullable: true),
+                    EMAIL = table.Column<string>(maxLength: 256, nullable: true),
+                    NORMALIZEDEMAIL = table.Column<string>(maxLength: 256, nullable: true),
                     EMAILCONFIRMED = table.Column<bool>(nullable: false),
                     PASSWORDHASH = table.Column<string>(nullable: true),
                     SECURITYSTAMP = table.Column<string>(nullable: true),
@@ -187,11 +182,37 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_USUARIO", x => x.ID);
+                    table.PrimaryKey("PK_ASPNETUSERS", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_USUARIO_PESSOA_IDPESSOA",
+                        name: "FK_ASPNETUSERS_PESSOAS_IDPESSOA",
                         column: x => x.IDPESSOA,
-                        principalTable: "PESSOA",
+                        principalTable: "PESSOAS",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "NOTICIAAUTORES",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IDAUTOR = table.Column<int>(nullable: false),
+                    IDNOTICIA = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NOTICIAAUTORES", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_NOTICIAAUTORES_PESSOAS_IDAUTOR",
+                        column: x => x.IDAUTOR,
+                        principalTable: "PESSOAS",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_NOTICIAAUTORES_NOTICIAS_IDNOTICIA",
+                        column: x => x.IDNOTICIA,
+                        principalTable: "NOTICIAS",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -264,9 +285,94 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_AGENDAMENTOHISTORICOS_USUARIO_IDUSUARIO",
+                        name: "FK_AGENDAMENTOHISTORICOS_ASPNETUSERS_IDUSUARIO",
                         column: x => x.IDUSUARIO,
-                        principalTable: "USUARIO",
+                        principalTable: "ASPNETUSERS",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ASPNETUSERCLAIMS",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    USERID = table.Column<int>(nullable: false),
+                    CLAIMTYPE = table.Column<string>(nullable: true),
+                    CLAIMVALUE = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ASPNETUSERCLAIMS", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_ASPNETUSERCLAIMS_ASPNETUSERS_USERID",
+                        column: x => x.USERID,
+                        principalTable: "ASPNETUSERS",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ASPNETUSERLOGINS",
+                columns: table => new
+                {
+                    LOGINPROVIDER = table.Column<string>(nullable: false),
+                    PROVIDERKEY = table.Column<string>(nullable: false),
+                    PROVIDERDISPLAYNAME = table.Column<string>(nullable: true),
+                    USERID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ASPNETUSERLOGINS", x => new { x.LOGINPROVIDER, x.PROVIDERKEY });
+                    table.ForeignKey(
+                        name: "FK_ASPNETUSERLOGINS_ASPNETUSERS_USERID",
+                        column: x => x.USERID,
+                        principalTable: "ASPNETUSERS",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ASPNETUSERROLES",
+                columns: table => new
+                {
+                    USERID = table.Column<int>(nullable: false),
+                    ROLEID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ASPNETUSERROLES", x => new { x.USERID, x.ROLEID });
+                    table.ForeignKey(
+                        name: "FK_ASPNETUSERROLES_ASPNETROLES_ROLEID",
+                        column: x => x.ROLEID,
+                        principalTable: "ASPNETROLES",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ASPNETUSERROLES_ASPNETUSERS_USERID",
+                        column: x => x.USERID,
+                        principalTable: "ASPNETUSERS",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ASPNETUSERTOKENS",
+                columns: table => new
+                {
+                    USERID = table.Column<int>(nullable: false),
+                    LOGINPROVIDER = table.Column<string>(nullable: false),
+                    NAME = table.Column<string>(nullable: false),
+                    VALUE = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ASPNETUSERTOKENS", x => new { x.USERID, x.LOGINPROVIDER, x.NAME });
+                    table.ForeignKey(
+                        name: "FK_ASPNETUSERTOKENS_ASPNETUSERS_USERID",
+                        column: x => x.USERID,
+                        principalTable: "ASPNETUSERS",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -293,33 +399,9 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_NOTICIAHISTORICO_USUARIO_IDUSUARIO",
+                        name: "FK_NOTICIAHISTORICO_ASPNETUSERS_IDUSUARIO",
                         column: x => x.IDUSUARIO,
-                        principalTable: "USUARIO",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "USUARIOROLE",
-                columns: table => new
-                {
-                    USERID = table.Column<int>(nullable: false),
-                    ROLEID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_USUARIOROLE", x => new { x.USERID, x.ROLEID });
-                    table.ForeignKey(
-                        name: "FK_USUARIOROLE_ROLE_ROLEID",
-                        column: x => x.ROLEID,
-                        principalTable: "ROLE",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_USUARIOROLE_USUARIO_USERID",
-                        column: x => x.USERID,
-                        principalTable: "USUARIO",
+                        principalTable: "ASPNETUSERS",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -354,9 +436,9 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_AGENDAMENTOSOLICITACAO_PESSOA_IDPESSOA",
+                        name: "FK_AGENDAMENTOSOLICITACAO_PESSOAS_IDPESSOA",
                         column: x => x.IDPESSOA,
-                        principalTable: "PESSOA",
+                        principalTable: "PESSOAS",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -381,9 +463,9 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_FUNCIONARIOS_PESSOA_IDPESSOA",
+                        name: "FK_FUNCIONARIOS_PESSOAS_IDPESSOA",
                         column: x => x.IDPESSOA,
-                        principalTable: "PESSOA",
+                        principalTable: "PESSOAS",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -437,9 +519,9 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_SUPORTESOLICITACOES_PESSOA_IDPESSOA",
+                        name: "FK_SUPORTESOLICITACOES_PESSOAS_IDPESSOA",
                         column: x => x.IDPESSOA,
-                        principalTable: "PESSOA",
+                        principalTable: "PESSOAS",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -466,9 +548,9 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_AGENDAMENTOSOLICITACAOHISTORICOS_USUARIO_IDUSUARIO",
+                        name: "FK_AGENDAMENTOSOLICITACAOHISTORICOS_ASPNETUSERS_IDUSUARIO",
                         column: x => x.IDUSUARIO,
-                        principalTable: "USUARIO",
+                        principalTable: "ASPNETUSERS",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -495,9 +577,9 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_FUNCIONARIOHISTORICOS_USUARIO_IDUSUARIO",
+                        name: "FK_FUNCIONARIOHISTORICOS_ASPNETUSERS_IDUSUARIO",
                         column: x => x.IDUSUARIO,
-                        principalTable: "USUARIO",
+                        principalTable: "ASPNETUSERS",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -548,19 +630,19 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 columns: new[] { "ID", "DATAHORADISPONIVELFINAL", "DATAHORADISPONIVELINICIAL", "DESCRICAO" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2021, 1, 27, 3, 29, 40, 917, DateTimeKind.Local).AddTicks(8976), new DateTime(2021, 1, 27, 0, 29, 40, 916, DateTimeKind.Local).AddTicks(4616), "Solicitar carteira de trabalho" },
-                    { 2, new DateTime(2021, 1, 27, 3, 29, 40, 918, DateTimeKind.Local).AddTicks(2878), new DateTime(2021, 1, 27, 0, 29, 40, 918, DateTimeKind.Local).AddTicks(2870), "Minha casa minha vida" }
+                    { 1, new DateTime(2021, 1, 31, 22, 53, 31, 448, DateTimeKind.Local).AddTicks(7669), new DateTime(2021, 1, 31, 19, 53, 31, 447, DateTimeKind.Local).AddTicks(1942), "Solicitar carteira de trabalho" },
+                    { 2, new DateTime(2021, 1, 31, 22, 53, 31, 449, DateTimeKind.Local).AddTicks(1851), new DateTime(2021, 1, 31, 19, 53, 31, 449, DateTimeKind.Local).AddTicks(1837), "Minha casa minha vida" }
                 });
 
             migrationBuilder.InsertData(
-                table: "PESSOA",
-                columns: new[] { "ID", "DATANASCIMENTO", "DOCUMENTO", "NOME" },
-                values: new object[] { 1, new DateTime(2001, 1, 27, 0, 0, 0, 0, DateTimeKind.Local), "43553936827", "Admin" });
+                table: "ASPNETROLES",
+                columns: new[] { "ID", "CONCURRENCYSTAMP", "NAME", "NORMALIZEDNAME" },
+                values: new object[] { 1, "0ac6fc09-1661-43c6-a811-08bc8237f418", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
-                table: "ROLE",
-                columns: new[] { "ID", "CONCURRENCYSTAMP", "NAME", "NORMALIZEDNAME" },
-                values: new object[] { 1, "b0615f0d-aa19-4a8d-916e-1f17d9f29547", "admin", "ADMIN" });
+                table: "PESSOAS",
+                columns: new[] { "ID", "DATANASCIMENTO", "DOCUMENTO", "NOME" },
+                values: new object[] { 1, new DateTime(2001, 1, 31, 0, 0, 0, 0, DateTimeKind.Local), "43553936827", "Admin" });
 
             migrationBuilder.InsertData(
                 table: "UNIDADEFEDERATIVA",
@@ -570,6 +652,11 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                     { 1, "MG" },
                     { 2, "SP" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "ASPNETUSERS",
+                columns: new[] { "ID", "ACCESSFAILEDCOUNT", "ATIVO", "CONCURRENCYSTAMP", "DATACADASTRO", "EMAIL", "EMAILCONFIRMED", "IDPESSOA", "LOCKOUTENABLED", "LOCKOUTEND", "NORMALIZEDEMAIL", "NORMALIZEDUSERNAME", "PASSWORDHASH", "PHONENUMBER", "PHONENUMBERCONFIRMED", "SECURITYSTAMP", "TWOFACTORENABLED", "USERNAME" },
+                values: new object[] { 1, 0, true, "c8554266-b401-4519-9aeb-a9283053fc58", new DateTime(2021, 1, 31, 19, 53, 31, 450, DateTimeKind.Local).AddTicks(8875), "admin@sgm.com.br", true, 1, false, null, "MYEMAIL@MYEMAIL.COM", "MYEMAIL@MYEMAIL.COM", "AQAAAAEAACcQAAAAEPIj4kbgp/t3Eg+g6zb4DPItimuGJVVKKzF7ifBO4by+oekl4DybdP9TERVZpkHk1A==", null, false, "VVPCRDAS3MJWQD5CSW2GWPRADBXEZINA", false, "admin@sgm.com.br" });
 
             migrationBuilder.InsertData(
                 table: "CIDADE",
@@ -582,12 +669,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 values: new object[] { 2, "BELO HORIZONTE", 2 });
 
             migrationBuilder.InsertData(
-                table: "USUARIO",
-                columns: new[] { "ID", "ACCESSFAILEDCOUNT", "ATIVO", "CONCURRENCYSTAMP", "DATACADASTRO", "EMAIL", "EMAILCONFIRMED", "IDPESSOA", "LOCKOUTENABLED", "LOCKOUTEND", "NORMALIZEDEMAIL", "NORMALIZEDUSERNAME", "PASSWORDHASH", "PHONENUMBER", "PHONENUMBERCONFIRMED", "SECURITYSTAMP", "TWOFACTORENABLED", "USERNAME" },
-                values: new object[] { 1, 0, true, "c8554266-b401-4519-9aeb-a9283053fc58", new DateTime(2021, 1, 27, 0, 29, 40, 920, DateTimeKind.Local).AddTicks(903), "myemail@myemail.com", true, 1, false, null, "MYEMAIL@MYEMAIL.COM", "MYEMAIL@MYEMAIL.COM", "AQABBAEABCcQAABAEBhd37krE/TyMklt3SIf2Q3ITj/dunHYr7O5Z9UB0R1+dpDbcrHWuTBr8Uh5WR+JrQ==", null, false, "VVPCRDAS3MJWQD5CSW2GWPRADBXEZINA", false, "myemail@myemail.com" });
-
-            migrationBuilder.InsertData(
-                table: "USUARIOROLE",
+                table: "ASPNETUSERROLES",
                 columns: new[] { "USERID", "ROLEID" },
                 values: new object[] { 1, 1 });
 
@@ -625,6 +707,50 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 name: "IX_AGENDAMENTOSOLICITACAOHISTORICOS_IDUSUARIO",
                 table: "AGENDAMENTOSOLICITACAOHISTORICOS",
                 column: "IDUSUARIO");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ASPNETROLECLAIMS_ROLEID",
+                table: "ASPNETROLECLAIMS",
+                column: "ROLEID");
+
+            migrationBuilder.CreateIndex(
+                name: "RoleNameIndex",
+                table: "ASPNETROLES",
+                column: "NORMALIZEDNAME",
+                unique: true,
+                filter: "[NORMALIZEDNAME] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ASPNETUSERCLAIMS_USERID",
+                table: "ASPNETUSERCLAIMS",
+                column: "USERID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ASPNETUSERLOGINS_USERID",
+                table: "ASPNETUSERLOGINS",
+                column: "USERID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ASPNETUSERROLES_ROLEID",
+                table: "ASPNETUSERROLES",
+                column: "ROLEID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ASPNETUSERS_IDPESSOA",
+                table: "ASPNETUSERS",
+                column: "IDPESSOA");
+
+            migrationBuilder.CreateIndex(
+                name: "EmailIndex",
+                table: "ASPNETUSERS",
+                column: "NORMALIZEDEMAIL");
+
+            migrationBuilder.CreateIndex(
+                name: "UserNameIndex",
+                table: "ASPNETUSERS",
+                column: "NORMALIZEDUSERNAME",
+                unique: true,
+                filter: "[NORMALIZEDUSERNAME] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CIDADE_IDUNIDADEFEDERATIVA",
@@ -717,16 +843,6 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 column: "IDPESSOA");
 
             migrationBuilder.CreateIndex(
-                name: "IX_USUARIO_IDPESSOA",
-                table: "USUARIO",
-                column: "IDPESSOA");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_USUARIOROLE_ROLEID",
-                table: "USUARIOROLE",
-                column: "ROLEID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_VISUALIZACAO_IDNOTICIA",
                 table: "VISUALIZACAO",
                 column: "IDNOTICIA");
@@ -739,6 +855,21 @@ namespace Prefeitura.Geral.Persistencia.Migrations
 
             migrationBuilder.DropTable(
                 name: "AGENDAMENTOSOLICITACAOHISTORICOS");
+
+            migrationBuilder.DropTable(
+                name: "ASPNETROLECLAIMS");
+
+            migrationBuilder.DropTable(
+                name: "ASPNETUSERCLAIMS");
+
+            migrationBuilder.DropTable(
+                name: "ASPNETUSERLOGINS");
+
+            migrationBuilder.DropTable(
+                name: "ASPNETUSERROLES");
+
+            migrationBuilder.DropTable(
+                name: "ASPNETUSERTOKENS");
 
             migrationBuilder.DropTable(
                 name: "COMENTARIOS");
@@ -768,25 +899,22 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 name: "SUPORTESOLICITACOES");
 
             migrationBuilder.DropTable(
-                name: "USUARIOROLE");
-
-            migrationBuilder.DropTable(
                 name: "VISUALIZACAO");
 
             migrationBuilder.DropTable(
                 name: "AGENDAMENTOSOLICITACAO");
 
             migrationBuilder.DropTable(
+                name: "ASPNETROLES");
+
+            migrationBuilder.DropTable(
                 name: "FUNCIONARIOS");
 
             migrationBuilder.DropTable(
+                name: "ASPNETUSERS");
+
+            migrationBuilder.DropTable(
                 name: "TAGS");
-
-            migrationBuilder.DropTable(
-                name: "ROLE");
-
-            migrationBuilder.DropTable(
-                name: "USUARIO");
 
             migrationBuilder.DropTable(
                 name: "NOTICIAS");
@@ -798,7 +926,7 @@ namespace Prefeitura.Geral.Persistencia.Migrations
                 name: "CIDADE");
 
             migrationBuilder.DropTable(
-                name: "PESSOA");
+                name: "PESSOAS");
 
             migrationBuilder.DropTable(
                 name: "UNIDADEFEDERATIVA");

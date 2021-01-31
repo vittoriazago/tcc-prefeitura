@@ -12,8 +12,8 @@ namespace Prefeitura.Geral.Persistencia
 
         public ContextoPrefeituraMigrations() :
             base(new DbContextOptionsBuilder<ContextoPrefeitura>()
-                //.UseSqlServer(Config.GetConnectionString("DefaultConnection")).Options
-                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options
+              //  .UseSqlServer(Config.GetConnectionString("DefaultConnection")).Options
+                .UseInMemoryDatabase(databaseName: "TESTE").Options
                 )
         {
         }

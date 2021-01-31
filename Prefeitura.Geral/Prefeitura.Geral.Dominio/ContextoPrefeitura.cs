@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Prefeitura.Geral.Dominio.Dominio;
 using Prefeitura.Geral.Dominio.Dominio.Agendamentos;
@@ -8,7 +10,11 @@ using Prefeitura.Geral.Dominio.Dominio.Suporte;
 
 namespace Prefeitura.Geral.Dominio
 {
-    public class ContextoPrefeitura : DbContext
+    public class ContextoPrefeitura : IdentityDbContext<Usuario, Role, int,
+                    IdentityUserClaim<int>, UsuarioRole,
+                    IdentityUserLogin<int>,
+                    IdentityRoleClaim<int>,
+                    IdentityUserToken<int>>
     {
         public ContextoPrefeitura(DbContextOptions<ContextoPrefeitura> options) : base(options) { }
 
@@ -32,6 +38,9 @@ namespace Prefeitura.Geral.Dominio
 
 
         public DbSet<SuporteSolicitacao> SuporteSolicitacoes { get; set; }
+
+        public DbSet<Pessoa> Pessoas { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLazyLoadingProxies();
