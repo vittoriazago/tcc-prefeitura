@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 
 namespace Prefeitura.Geral.Api.Controllers
 {
-    [Route("api/usuario")]
+    [Route("[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
