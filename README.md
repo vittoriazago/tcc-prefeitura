@@ -16,6 +16,3 @@ heroku container:push web -a prefeitura-front
 heroku container:release web -a prefeitura-front
 
 
-# Usuario adm
-admin@sgm.com.br
-Admin123!

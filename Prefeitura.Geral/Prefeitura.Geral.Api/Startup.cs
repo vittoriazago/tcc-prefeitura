@@ -12,10 +12,12 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Prefeitura.Geral.Api.Configuration;
 using Prefeitura.Geral.Dominio;
+using Prefeitura.Geral.Dominio.Dominio;
 using Prefeitura.Geral.Dominio.Servicos;
 using System;
 using System.IO;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace Prefeitura.Geral.Api
 {
@@ -67,7 +69,8 @@ namespace Prefeitura.Geral.Api
             services.AddScoped<ServicosAgendamentos>();
             services.AddScoped<ServicosAgendamentosSolicitacoes>();
             services.AddScoped<ServicosFuncionarios>();
-            services.AddScoped<ServicosPessoas>();
+            services.AddScoped<ServicosPessoas>(); 
+            services.AddScoped<ContextoPrefeituraSeed>(); 
 
             services.AddAutoMapper(typeof(Startup));
 
@@ -97,10 +100,11 @@ namespace Prefeitura.Geral.Api
                 // adiciona a autoriza��o e os coment�rios pelo xml
                 c.IncludeXmlComments(caminhoXmlDoc);
             });
-        }
+
+           }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -134,6 +138,9 @@ namespace Prefeitura.Geral.Api
                     pattern: "{controller}/{action=Index}/{id?}");
             });
 
+            using var scope = app.ApplicationServices.CreateScope();
+            var contextoDadosIniciais = (ContextoPrefeituraSeed)scope.ServiceProvider.GetService(typeof(ContextoPrefeituraSeed));
+            await contextoDadosIniciais.SeedInitialApi();
         }
     }
 }

@@ -1,56 +1,74 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Prefeitura.Geral.Dominio.Dominio;
 using Prefeitura.Geral.Dominio.Dominio.Agendamentos;
+using Prefeitura.Geral.Dominio.Servicos;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Prefeitura.Geral.Dominio
 {
-    public static class ContextoPrefeituraSeed
+    public class ContextoPrefeituraSeed
     {
-        public static void SeedInicial(this ModelBuilder modelBuilder)
-        {
-            modelBuilder.SeedUFsCidades();
-            modelBuilder.SeedAgendamentos();
+        private readonly UserManager<Usuario> _usuarioManager;
+        private readonly RoleManager<Role> _roleManager;
+        private readonly ServicosPessoas _servicosPessoas;
 
-            const int ADMIN_ID = 1;
-            const int ROLE_ID = ADMIN_ID;
-            modelBuilder.Entity<Pessoa>().HasData(new Pessoa
+        public ContextoPrefeituraSeed(UserManager<Usuario> usuarioManager,
+            RoleManager<Role> roleManager,
+            ServicosPessoas servicosPessoas)
+        {
+            _roleManager = roleManager;
+            _servicosPessoas = servicosPessoas;
+            _usuarioManager = usuarioManager;
+        }
+        public async Task SeedInitialApi()
+        {
+            await SeedRole("sgm");
+            await SeedUser(1, "sgm", "Vittoria Funcionária", "43244082374823", "funcionario@sgm.com.br", "sgm2021");
+
+            await SeedRole("comum");
+            await SeedUser(2, "comum", "Vittoria Municípe", "43244082374823", "vittoria.municipe@mail.com.br", "sgm2021");
+        }
+        public async Task SeedRole(string roleName)
+        {
+            var role = new Role
             {
-                Id = ADMIN_ID,
-                Nome = "Admin",
-                Documento = "43553936827",
+                Name = roleName
+            };
+            await _roleManager.CreateAsync(role);
+        }
+        public async Task SeedUser(int id, string role, string nome, string documento, string email, string senha)
+        {
+            var pessoa = new Pessoa
+            {
+                Id = id,
+                Nome = nome,
+                Documento = documento,
                 DataNascimento = DateTime.Today.AddYears(-20)
-            });
-            modelBuilder.Entity<Role>().HasData(new Role
+            };
+            await _servicosPessoas.AdicionarPessoa(pessoa);
+
+            var usuarioNovo = new Usuario
             {
-                Id = ROLE_ID,
-                Name = "admin",
-                NormalizedName = "ADMIN"
-            });
-            modelBuilder.Entity<Usuario>().HasData(new Usuario
-            {
-                Id = ADMIN_ID,
-                UserName = "admin@sgm.com.br",
-                NormalizedUserName = "MYEMAIL@MYEMAIL.COM",
-                Email = "admin@sgm.com.br",
-                NormalizedEmail = "MYEMAIL@MYEMAIL.COM",
+                Id = id,
+                UserName = email,
+                NormalizedUserName = email,
+                Email = email,
+                NormalizedEmail = email,
                 EmailConfirmed = true,
-                IdPessoa = ADMIN_ID,
+                IdPessoa = id,
                 DataCadastro = DateTime.Now,
                 Ativo = true,
-                PasswordHash = "AQAAAAEAACcQAAAAEPIj4kbgp/t3Eg+g6zb4DPItimuGJVVKKzF7ifBO4by+oekl4DybdP9TERVZpkHk1A==",
-                SecurityStamp = "VVPCRDAS3MJWQD5CSW2GWPRADBXEZINA",
-                ConcurrencyStamp = "c8554266-b401-4519-9aeb-a9283053fc58"
-            });
-            modelBuilder.Entity<UsuarioRole>().HasData(new UsuarioRole
+            };
+            var userResult = await _usuarioManager.CreateAsync(usuarioNovo, senha);
+            if (userResult.Succeeded)
             {
-                RoleId = ROLE_ID,
-                UserId = ADMIN_ID
-            });
+                await _usuarioManager.AddToRoleAsync(usuarioNovo, role);
+            }
         }
-
-        public static void SeedUFsCidades(this ModelBuilder modelBuilder)
+        public void SeedUFsCidades(ModelBuilder modelBuilder)
         {
             var dados = new List<(UnidadeFederativa, Cidade)>()
             {
@@ -64,7 +82,7 @@ namespace Prefeitura.Geral.Dominio
                 modelBuilder.Entity<Cidade>().HasData(uf.Item2);
             });
         }
-        public static void SeedAgendamentos(this ModelBuilder modelBuilder)
+        public void SeedAgendamentos(ModelBuilder modelBuilder)
         {
             var dados = new List<Agendamento>()
             {

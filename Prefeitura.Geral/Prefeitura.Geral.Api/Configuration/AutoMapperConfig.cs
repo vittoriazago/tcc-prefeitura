@@ -5,6 +5,7 @@ using Prefeitura.Geral.Dominio.Dominio;
 using Prefeitura.Geral.Dominio.Dominio.Agendamentos;
 using Prefeitura.Geral.Dominio.Dominio.Blog;
 using Prefeitura.Geral.Dominio.Dominio.Financeiro;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,6 +17,8 @@ namespace Prefeitura.Geral.Api.Configuration
         {
             CreateMap<UsuarioNovoDto, Usuario>()
               .ForMember(f => f.UserName, r => r.MapFrom(f => f.Email))
+              .ForMember(f => f.Ativo, r => r.MapFrom(f => true))
+              .ForMember(f => f.DataCadastro, r => r.MapFrom(f => DateTime.Now))
               .ForMember(f => f.Email, r => r.MapFrom(f => f.Email))
               .ForMember(f => f.NormalizedEmail, r => r.MapFrom(f => f.Email))
               .ForMember(f => f.NormalizedUserName, r => r.MapFrom(f => f.Email));

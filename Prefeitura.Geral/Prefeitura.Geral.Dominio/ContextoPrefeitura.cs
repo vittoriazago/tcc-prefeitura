@@ -79,7 +79,7 @@ namespace Prefeitura.Geral.Dominio
                     key.DeleteBehavior = DeleteBehavior.Restrict;
                 }
             }
-            modelBuilder.SeedInicial();
+            //modelBuilder.SeedInicial();
 
         }
 

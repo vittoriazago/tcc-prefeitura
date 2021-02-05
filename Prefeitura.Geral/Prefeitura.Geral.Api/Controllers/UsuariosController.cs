@@ -56,11 +56,15 @@ namespace Prefeitura.Geral.Api.Controllers
                     Documento = usuarioNovoDto.Documento,
                     DataNascimento = usuarioNovoDto.DataNascimento
                 });
+
                 var usuario = _mapper.Map<Usuario>(usuarioNovoDto);
-                usuario.Ativo = true;
-                usuario.DataCadastro = DateTime.Now;
                 usuario.IdPessoa = pessoa.Id;
+
                 var result = await _usuarioManager.CreateAsync(usuario, usuarioNovoDto.Senha);
+                if (result.Succeeded)
+                {
+                    await _usuarioManager.AddToRoleAsync(usuario, usuarioNovoDto.Perfil == 1 ? "sgm" : "comum");
+                }
 
                 if (!result.Succeeded)
                     return BadRequest(result.Errors);
